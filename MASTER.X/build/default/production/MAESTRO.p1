@@ -186,7 +186,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;MAESTRO.c: 34: void MESSAGE(void);
 [v _MESSAGE `(v ~T0 @X0 0 ef ]
-"358 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+"3641 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3641: extern volatile __bit BF __attribute__((address(0x4A0)));
+[v _BF `Vb ~T0 @X0 0 e@1184 ]
+"358
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 358:     struct {
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
@@ -501,212 +504,219 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MAESTRO.c: 50:     }
 }
 [e :U 139 ]
-"51
-[; ;MAESTRO.c: 51:     return;
+"52
+[; ;MAESTRO.c: 52:     return;
 [e $UE 138  ]
-"53
-[; ;MAESTRO.c: 53: }
+"54
+[; ;MAESTRO.c: 54: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"56
-[; ;MAESTRO.c: 56: void main(void) {
+"57
+[; ;MAESTRO.c: 57: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"59
-[; ;MAESTRO.c: 59:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
 "60
-[; ;MAESTRO.c: 60:     OSCCONbits.OSTS= 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 60:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
 "61
-[; ;MAESTRO.c: 61:     OSCCONbits.HTS = 0;
-[e = . . _OSCCONbits 0 2 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 61:     OSCCONbits.OSTS= 0;
+[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
 "62
-[; ;MAESTRO.c: 62:     OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 62:     OSCCONbits.HTS = 0;
+[e = . . _OSCCONbits 0 2 -> -> 0 `i `uc ]
 "63
-[; ;MAESTRO.c: 63:     OSCCONbits.SCS = 1;
+[; ;MAESTRO.c: 63:     OSCCONbits.LTS = 0;
+[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
+"64
+[; ;MAESTRO.c: 64:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"67
-[; ;MAESTRO.c: 67:     ANSEL = 0b000100001;
-[e = _ANSEL -> -> 33 `i `uc ]
 "68
-[; ;MAESTRO.c: 68:     ANSELH = 0b00000000;
+[; ;MAESTRO.c: 68:     ANSEL = 0b000100001;
+[e = _ANSEL -> -> 33 `i `uc ]
+"69
+[; ;MAESTRO.c: 69:     ANSELH = 0b00000000;
 [e = _ANSELH -> -> 0 `i `uc ]
-"70
-[; ;MAESTRO.c: 70:     TRISA = 0b00000001;
-[e = _TRISA -> -> 1 `i `uc ]
 "71
-[; ;MAESTRO.c: 71:     TRISB = 0b00000000;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 71:     TRISA = 0b00000001;
+[e = _TRISA -> -> 1 `i `uc ]
 "72
-[; ;MAESTRO.c: 72:     TRISC = 0b00010000;
-[e = _TRISC -> -> 16 `i `uc ]
+[; ;MAESTRO.c: 72:     TRISB = 0b00000000;
+[e = _TRISB -> -> 0 `i `uc ]
 "73
-[; ;MAESTRO.c: 73:     TRISD = 0b00000000;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 73:     TRISC = 0b00010000;
+[e = _TRISC -> -> 16 `i `uc ]
 "74
-[; ;MAESTRO.c: 74:     TRISE = 0001;
+[; ;MAESTRO.c: 74:     TRISD = 0b00000000;
+[e = _TRISD -> -> 0 `i `uc ]
+"75
+[; ;MAESTRO.c: 75:     TRISE = 0001;
 [e = _TRISE -> -> 1 `i `uc ]
-"76
-[; ;MAESTRO.c: 76:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
 "77
-[; ;MAESTRO.c: 77:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 77:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "78
-[; ;MAESTRO.c: 78:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 78:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "79
-[; ;MAESTRO.c: 79:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 79:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
 "80
-[; ;MAESTRO.c: 80:     PORTE = 0;
+[; ;MAESTRO.c: 80:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"81
+[; ;MAESTRO.c: 81:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"83
-[; ;MAESTRO.c: 83:     ADCON0bits.ADCS0 = 1;
-[e = . . _ADCON0bits 1 6 -> -> 1 `i `uc ]
 "84
-[; ;MAESTRO.c: 84:     ADCON0bits.ADCS1 = 0;
-[e = . . _ADCON0bits 1 7 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 84:     ADCON0bits.ADCS0 = 1;
+[e = . . _ADCON0bits 1 6 -> -> 1 `i `uc ]
 "85
-[; ;MAESTRO.c: 85:     ADCON0bits.CHS0 = 0;
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 85:     ADCON0bits.ADCS1 = 0;
+[e = . . _ADCON0bits 1 7 -> -> 0 `i `uc ]
 "86
-[; ;MAESTRO.c: 86:     ADCON0bits.CHS1 = 0;
-[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 86:     ADCON0bits.CHS0 = 0;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
 "87
-[; ;MAESTRO.c: 87:     ADCON0bits.CHS2 = 0;
-[e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 87:     ADCON0bits.CHS1 = 0;
+[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
 "88
-[; ;MAESTRO.c: 88:     ADCON0bits.CHS3 = 0;
-[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 88:     ADCON0bits.CHS2 = 0;
+[e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
 "89
-[; ;MAESTRO.c: 89:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 89:     ADCON0bits.CHS3 = 0;
+[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
 "90
-[; ;MAESTRO.c: 90:     ADCON1bits.ADFM = 0;
-[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 90:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "91
-[; ;MAESTRO.c: 91:     ADCON1bits.VCFG0 = 0;
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 91:     ADCON1bits.ADFM = 0;
+[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
 "92
-[; ;MAESTRO.c: 92:     ADCON1bits.VCFG1 = 0;
+[; ;MAESTRO.c: 92:     ADCON1bits.VCFG0 = 0;
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+"93
+[; ;MAESTRO.c: 93:     ADCON1bits.VCFG1 = 0;
 [e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-"96
-[; ;MAESTRO.c: 96:     SSPSTATbits.SMP = 0;
-[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
 "97
-[; ;MAESTRO.c: 97:     SSPSTATbits.CKE = 0;
-[e = . . _SSPSTATbits 0 6 -> -> 0 `i `uc ]
+[; ;MAESTRO.c: 97:     SSPSTATbits.SMP = 0;
+[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
 "98
-[; ;MAESTRO.c: 98:     SSPCONbits.SSPEN = 1;
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 98:     SSPSTATbits.CKE = 0;
+[e = . . _SSPSTATbits 0 6 -> -> 0 `i `uc ]
 "99
-[; ;MAESTRO.c: 99:     SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 99:     SSPCONbits.SSPEN = 1;
+[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
 "100
-[; ;MAESTRO.c: 100:     SSPCONbits.SSPM = 0b0010;
+[; ;MAESTRO.c: 100:     SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"101
+[; ;MAESTRO.c: 101:     SSPCONbits.SSPM = 0b0010;
 [e = . . _SSPCONbits 0 0 -> -> 2 `i `uc ]
-"103
-[; ;MAESTRO.c: 103:     PIE1bits.SSPIE = 1;
-[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
 "104
-[; ;MAESTRO.c: 104:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 104:     PIE1bits.SSPIE = 1;
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
 "105
-[; ;MAESTRO.c: 105:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 105:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "106
-[; ;MAESTRO.c: 106:     BANDERA = 1;
-[e = _BANDERA -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 106:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "107
-[; ;MAESTRO.c: 107:     LOOP();
-[e ( _LOOP ..  ]
+[; ;MAESTRO.c: 107:     BANDERA = 1;
+[e = _BANDERA -> -> 1 `i `uc ]
 "108
-[; ;MAESTRO.c: 108: }
+[; ;MAESTRO.c: 108:     LOOP();
+[e ( _LOOP ..  ]
+"109
+[; ;MAESTRO.c: 109: }
 [e :UE 140 ]
 }
-"111
-[; ;MAESTRO.c: 111: void LOOP(void){
+"112
+[; ;MAESTRO.c: 112: void LOOP(void){
 [v _LOOP `(v ~T0 @X0 1 ef ]
 {
 [e :U _LOOP ]
 [f ]
-"112
-[; ;MAESTRO.c: 112:     while(1){
+"113
+[; ;MAESTRO.c: 113:     while(1){
 [e :U 143 ]
 {
-"113
-[; ;MAESTRO.c: 113:         ANALOGICO();
-[e ( _ANALOGICO ..  ]
 "114
-[; ;MAESTRO.c: 114:         MESSAGE();
+[; ;MAESTRO.c: 114:         ANALOGICO();
+[e ( _ANALOGICO ..  ]
+"115
+[; ;MAESTRO.c: 115:         MESSAGE();
 [e ( _MESSAGE ..  ]
-"118
-[; ;MAESTRO.c: 118:     }
+"119
+[; ;MAESTRO.c: 119:     }
 }
 [e :U 142 ]
 [e $U 143  ]
 [e :U 144 ]
-"119
-[; ;MAESTRO.c: 119: }
+"120
+[; ;MAESTRO.c: 120: }
 [e :UE 141 ]
 }
-"121
-[; ;MAESTRO.c: 121: void MESSAGE(void){
+"122
+[; ;MAESTRO.c: 122: void MESSAGE(void){
 [v _MESSAGE `(v ~T0 @X0 1 ef ]
 {
 [e :U _MESSAGE ]
 [f ]
 "124
-[; ;MAESTRO.c: 124:     PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 124:     while(BF==1);
+[e $U 146  ]
+[e :U 147 ]
+[e :U 146 ]
+[e $ == -> _BF `i -> 1 `i 147  ]
+[e :U 148 ]
 "125
-[; ;MAESTRO.c: 125:     SSPBUF = y;
-[e = _SSPBUF -> _y `uc ]
+[; ;MAESTRO.c: 125:     PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
 "126
-[; ;MAESTRO.c: 126:     PORTDbits.RD1 = 0;
+[; ;MAESTRO.c: 126:     SSPBUF = y;
+[e = _SSPBUF -> _y `uc ]
+"127
+[; ;MAESTRO.c: 127:     PORTDbits.RD1 = 0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"131
-[; ;MAESTRO.c: 131:         return;
-[e $UE 145  ]
 "132
-[; ;MAESTRO.c: 132: }
+[; ;MAESTRO.c: 132:         return;
+[e $UE 145  ]
+"133
+[; ;MAESTRO.c: 133: }
 [e :UE 145 ]
 }
-"134
-[; ;MAESTRO.c: 134: void ANALOGICO(void){
+"135
+[; ;MAESTRO.c: 135: void ANALOGICO(void){
 [v _ANALOGICO `(v ~T0 @X0 1 ef ]
 {
 [e :U _ANALOGICO ]
 [f ]
-"135
-[; ;MAESTRO.c: 135:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "136
-[; ;MAESTRO.c: 136:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;MAESTRO.c: 136:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "137
-[; ;MAESTRO.c: 137:         ADCON0bits.GO = 1;
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 137:     _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "138
-[; ;MAESTRO.c: 138:         while(ADCON0bits.GO);
-[e $U 147  ]
-[e :U 148 ]
-[e :U 147 ]
-[e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 148  ]
-[e :U 149 ]
-"140
-[; ;MAESTRO.c: 140:             y = ADRESH;
+[; ;MAESTRO.c: 138:         ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+"139
+[; ;MAESTRO.c: 139:         while(ADCON0bits.GO);
+[e $U 150  ]
+[e :U 151 ]
+[e :U 150 ]
+[e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 151  ]
+[e :U 152 ]
+"141
+[; ;MAESTRO.c: 141:             y = ADRESH;
 [e = _y -> _ADRESH `uc ]
-"143
-[; ;MAESTRO.c: 143:     return;
-[e $UE 146  ]
 "144
-[; ;MAESTRO.c: 144: }
-[e :UE 146 ]
+[; ;MAESTRO.c: 144:     return;
+[e $UE 149  ]
+"145
+[; ;MAESTRO.c: 145: }
+[e :UE 149 ]
 }

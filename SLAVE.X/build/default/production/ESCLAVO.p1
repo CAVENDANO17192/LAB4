@@ -53,8 +53,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2231
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2231: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
 [v _SSPSTATbits `VS81 ~T0 @X0 0 e@148 ]
+"37 ESCLAVO.c
+[; ;ESCLAVO.c: 37: void MESSAGE(void);
+[v _MESSAGE `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"1868
+"1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
 [n S70 . SCS LTS HTS OSTS IRCF ]
@@ -183,9 +186,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;ESCLAVO.c: 34: void ANALOGICO(void);
 [v _ANALOGICO `(v ~T0 @X0 0 ef ]
-"37
-[; ;ESCLAVO.c: 37: void MESSAGE(void);
-[v _MESSAGE `(v ~T0 @X0 0 ef ]
+"3641 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3641: extern volatile __bit BF __attribute__((address(0x4A0)));
+[v _BF `Vb ~T0 @X0 0 e@1184 ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
@@ -486,158 +489,158 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50
 [; ;ESCLAVO.c: 50:           PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"51
-[; ;ESCLAVO.c: 51:     }
+"52
+[; ;ESCLAVO.c: 52:     }
 }
 [e :U 139 ]
-"52
-[; ;ESCLAVO.c: 52:     return;
-[e $UE 138  ]
 "53
-[; ;ESCLAVO.c: 53: }
+[; ;ESCLAVO.c: 53:     MESSAGE();
+[e ( _MESSAGE ..  ]
+"54
+[; ;ESCLAVO.c: 54:     return;
+[e $UE 138  ]
+"55
+[; ;ESCLAVO.c: 55: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"56
-[; ;ESCLAVO.c: 56: void main(void) {
+"58
+[; ;ESCLAVO.c: 58: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"59
-[; ;ESCLAVO.c: 59:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"60
-[; ;ESCLAVO.c: 60:     OSCCONbits.OSTS= 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
 "61
-[; ;ESCLAVO.c: 61:     OSCCONbits.HTS = 0;
-[e = . . _OSCCONbits 0 2 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 61:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
 "62
-[; ;ESCLAVO.c: 62:     OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 62:     OSCCONbits.OSTS= 0;
+[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
 "63
-[; ;ESCLAVO.c: 63:     OSCCONbits.SCS = 1;
+[; ;ESCLAVO.c: 63:     OSCCONbits.HTS = 0;
+[e = . . _OSCCONbits 0 2 -> -> 0 `i `uc ]
+"64
+[; ;ESCLAVO.c: 64:     OSCCONbits.LTS = 0;
+[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
+"65
+[; ;ESCLAVO.c: 65:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"67
-[; ;ESCLAVO.c: 67:     ANSEL = 0b00000001;
+"69
+[; ;ESCLAVO.c: 69:     ANSEL = 0b00000001;
 [e = _ANSEL -> -> 1 `i `uc ]
-"68
-[; ;ESCLAVO.c: 68:     ANSELH = 0b00000000;
-[e = _ANSELH -> -> 0 `i `uc ]
 "70
-[; ;ESCLAVO.c: 70:     TRISA = 0b00100001;
-[e = _TRISA -> -> 33 `i `uc ]
-"71
-[; ;ESCLAVO.c: 71:     TRISB = 0b00000000;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 70:     ANSELH = 0b00000000;
+[e = _ANSELH -> -> 0 `i `uc ]
 "72
-[; ;ESCLAVO.c: 72:     TRISC = 0b00011000;
-[e = _TRISC -> -> 24 `i `uc ]
+[; ;ESCLAVO.c: 72:     TRISA = 0b00100001;
+[e = _TRISA -> -> 33 `i `uc ]
 "73
-[; ;ESCLAVO.c: 73:     TRISD = 0b00000000;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 73:     TRISB = 0b00000000;
+[e = _TRISB -> -> 0 `i `uc ]
 "74
-[; ;ESCLAVO.c: 74:     TRISE = 0b0000;
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 74:     TRISC = 0b00011000;
+[e = _TRISC -> -> 24 `i `uc ]
+"75
+[; ;ESCLAVO.c: 75:     TRISD = 0b00000000;
+[e = _TRISD -> -> 0 `i `uc ]
 "76
-[; ;ESCLAVO.c: 76:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
-"77
-[; ;ESCLAVO.c: 77:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 76:     TRISE = 0b0000;
+[e = _TRISE -> -> 0 `i `uc ]
 "78
-[; ;ESCLAVO.c: 78:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 78:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "79
-[; ;ESCLAVO.c: 79:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 79:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "80
-[; ;ESCLAVO.c: 80:     PORTE = 0;
+[; ;ESCLAVO.c: 80:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"81
+[; ;ESCLAVO.c: 81:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"82
+[; ;ESCLAVO.c: 82:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"83
-[; ;ESCLAVO.c: 83:     ADCON0bits.ADCS0 = 1;
-[e = . . _ADCON0bits 1 6 -> -> 1 `i `uc ]
-"84
-[; ;ESCLAVO.c: 84:     ADCON0bits.ADCS1 = 0;
-[e = . . _ADCON0bits 1 7 -> -> 0 `i `uc ]
 "85
-[; ;ESCLAVO.c: 85:     ADCON0bits.CHS0 = 0;
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 85:     ADCON0bits.ADCS0 = 1;
+[e = . . _ADCON0bits 1 6 -> -> 1 `i `uc ]
 "86
-[; ;ESCLAVO.c: 86:     ADCON0bits.CHS1 = 0;
-[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 86:     ADCON0bits.ADCS1 = 0;
+[e = . . _ADCON0bits 1 7 -> -> 0 `i `uc ]
 "87
-[; ;ESCLAVO.c: 87:     ADCON0bits.CHS2 = 0;
-[e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 87:     ADCON0bits.CHS0 = 0;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
 "88
-[; ;ESCLAVO.c: 88:     ADCON0bits.CHS3 = 0;
-[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 88:     ADCON0bits.CHS1 = 0;
+[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
 "89
-[; ;ESCLAVO.c: 89:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;ESCLAVO.c: 89:     ADCON0bits.CHS2 = 0;
+[e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
 "90
-[; ;ESCLAVO.c: 90:     ADCON1bits.ADFM = 0;
-[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 90:     ADCON0bits.CHS3 = 0;
+[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
 "91
-[; ;ESCLAVO.c: 91:     ADCON1bits.VCFG0 = 0;
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 91:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "92
-[; ;ESCLAVO.c: 92:     ADCON1bits.VCFG1 = 0;
+[; ;ESCLAVO.c: 92:     ADCON1bits.ADFM = 0;
+[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
+"93
+[; ;ESCLAVO.c: 93:     ADCON1bits.VCFG0 = 0;
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+"94
+[; ;ESCLAVO.c: 94:     ADCON1bits.VCFG1 = 0;
 [e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-"95
-[; ;ESCLAVO.c: 95:     SSPSTATbits.SMP = 0;
-[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
-"96
-[; ;ESCLAVO.c: 96:     SSPSTATbits.CKE = 0;
-[e = . . _SSPSTATbits 0 6 -> -> 0 `i `uc ]
 "97
-[; ;ESCLAVO.c: 97:     SSPCONbits.SSPEN = 1;
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+[; ;ESCLAVO.c: 97:     SSPSTATbits.SMP = 0;
+[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
 "98
-[; ;ESCLAVO.c: 98:     SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;ESCLAVO.c: 98:     SSPSTATbits.CKE = 0;
+[e = . . _SSPSTATbits 0 6 -> -> 0 `i `uc ]
 "99
-[; ;ESCLAVO.c: 99:     SSPCONbits.SSPM = 0b0100;
+[; ;ESCLAVO.c: 99:     SSPCONbits.SSPEN = 1;
+[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+"100
+[; ;ESCLAVO.c: 100:     SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"101
+[; ;ESCLAVO.c: 101:     SSPCONbits.SSPM = 0b0100;
 [e = . . _SSPCONbits 0 0 -> -> 4 `i `uc ]
-"102
-[; ;ESCLAVO.c: 102:     PIE1bits.SSPIE = 1;
-[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
-"103
-[; ;ESCLAVO.c: 103:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "104
-[; ;ESCLAVO.c: 104:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;ESCLAVO.c: 104:     PIE1bits.SSPIE = 1;
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+"105
+[; ;ESCLAVO.c: 105:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "106
-[; ;ESCLAVO.c: 106:     BANDERA = 1;
-[e = _BANDERA -> -> 1 `i `uc ]
-"107
-[; ;ESCLAVO.c: 107:     y = 0;
-[e = _y -> -> 0 `i `uc ]
+[; ;ESCLAVO.c: 106:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "108
-[; ;ESCLAVO.c: 108:     LOOP();
-[e ( _LOOP ..  ]
+[; ;ESCLAVO.c: 108:     BANDERA = 1;
+[e = _BANDERA -> -> 1 `i `uc ]
 "109
-[; ;ESCLAVO.c: 109: }
+[; ;ESCLAVO.c: 109:     y = 0;
+[e = _y -> -> 0 `i `uc ]
+"110
+[; ;ESCLAVO.c: 110:     LOOP();
+[e ( _LOOP ..  ]
+"111
+[; ;ESCLAVO.c: 111: }
 [e :UE 140 ]
 }
-"110
-[; ;ESCLAVO.c: 110: void LOOP(void){
+"112
+[; ;ESCLAVO.c: 112: void LOOP(void){
 [v _LOOP `(v ~T0 @X0 1 ef ]
 {
 [e :U _LOOP ]
 [f ]
-"111
-[; ;ESCLAVO.c: 111:     while(1){
+"113
+[; ;ESCLAVO.c: 113:     while(1){
 [e :U 143 ]
 {
-"114
-[; ;ESCLAVO.c: 114:     ANALOGICO();
+"116
+[; ;ESCLAVO.c: 116:     ANALOGICO();
 [e ( _ANALOGICO ..  ]
-"115
-[; ;ESCLAVO.c: 115:     MESSAGE();
-[e ( _MESSAGE ..  ]
 "119
 [; ;ESCLAVO.c: 119: }
 }
@@ -654,6 +657,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _MESSAGE ]
 [f ]
+"127
+[; ;ESCLAVO.c: 127:     while(BF==1);
+[e $U 146  ]
+[e :U 147 ]
+[e :U 146 ]
+[e $ == -> _BF `i -> 1 `i 147  ]
+[e :U 148 ]
 "128
 [; ;ESCLAVO.c: 128:     SSPBUF = y;
 [e = _SSPBUF -> _y `uc ]
@@ -684,18 +694,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "138
 [; ;ESCLAVO.c: 138:         while(ADCON0bits.GO);
-[e $U 147  ]
-[e :U 148 ]
-[e :U 147 ]
-[e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 148  ]
-[e :U 149 ]
+[e $U 150  ]
+[e :U 151 ]
+[e :U 150 ]
+[e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 151  ]
+[e :U 152 ]
 "140
 [; ;ESCLAVO.c: 140:             y = ADRESH;
 [e = _y -> _ADRESH `uc ]
 "143
 [; ;ESCLAVO.c: 143:     return;
-[e $UE 146  ]
+[e $UE 149  ]
 "144
 [; ;ESCLAVO.c: 144: }
-[e :UE 146 ]
+[e :UE 149 ]
 }

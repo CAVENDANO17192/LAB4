@@ -48,7 +48,9 @@ void __interrupt() ISR(void){
         PORTB = x;
           SSPSTATbits.BF= 0;
           PIR1bits.SSPIF = 0;
+           
     }
+    MESSAGE();
     return;
 }
 
@@ -112,10 +114,8 @@ void LOOP(void){
       
          
     ANALOGICO();
-    MESSAGE();
-    
-
-    
+   
+ 
 }
 }
 
@@ -124,7 +124,7 @@ void LOOP(void){
 
 void MESSAGE(void){
    
-    
+    while(BF==1);
     SSPBUF = y;
     BANDERA = 0;
     

@@ -2533,6 +2533,7 @@ void __attribute__((picinterrupt(("")))) ISR(void){
           PIR1bits.SSPIF = 0;
 
     }
+
     return;
 
 }
@@ -2605,7 +2606,7 @@ void LOOP(void){
 
 void MESSAGE(void){
 
-
+    while(BF==1);
     PORTDbits.RD1 = 1;
     SSPBUF = y;
     PORTDbits.RD1 = 0;
