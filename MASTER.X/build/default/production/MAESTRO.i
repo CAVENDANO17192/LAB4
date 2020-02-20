@@ -2542,7 +2542,7 @@ void __attribute__((picinterrupt(("")))) ISR(void){
 void main(void) {
 
 
-    OSCCONbits.IRCF = 0b111;
+    OSCCONbits.IRCF = 0b110;
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -2589,7 +2589,7 @@ void main(void) {
     PIE1bits.SSPIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
-
+# 121 "MAESTRO.c"
     x= 0;
     y=0;
     LOOP();

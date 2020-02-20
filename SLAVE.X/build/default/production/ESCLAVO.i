@@ -2516,11 +2516,12 @@ extern __bank0 __bit __timeout;
 
 
 void ANALOGICO(void);
+void ANALOGICO2(void);
 void LOOP(void);
 void RECEIVE(void);
 void MESSAGE(void);
 char x;
-char BANDERA;
+char z;
 char y;
 char DATA;
 
@@ -2568,10 +2569,7 @@ void main(void) {
 
     ADCON0bits.ADCS0 = 1;
     ADCON0bits.ADCS1 = 0;
-    ADCON0bits.CHS0 = 0;
-    ADCON0bits.CHS1 = 0;
-    ADCON0bits.CHS2 = 0;
-    ADCON0bits.CHS3 = 0;
+
     ADCON0bits.ADON = 1;
     ADCON1bits.ADFM = 0;
     ADCON1bits.VCFG0 = 0;
@@ -2610,12 +2608,28 @@ void MESSAGE(void){
 
     while(BF==1);
     SSPBUF = y;
-    BANDERA = 0;
+
 
         return;
 }
 
 void ANALOGICO(void){
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+        ADCON0bits.CHS = 0000;
+        ADCON0bits.ADON = 1;
+        ADCON0bits.GO = 1;
+        while(ADCON0bits.GO);
+
+            y = ADRESH;
+
+
+    return;
+}
+void ANALOGICO2(void){
+    ADCON0bits.CHS0 = 0;
+    ADCON0bits.CHS1 = 0;
+    ADCON0bits.CHS2 = 0;
+    ADCON0bits.CHS3 = 0;
     ADCON0bits.ADON = 1;
     _delay((unsigned long)((1)*(4000000/4000.0)));
         ADCON0bits.GO = 1;

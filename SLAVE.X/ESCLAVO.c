@@ -32,11 +32,12 @@
 #include <pic16f887.h>
 #define _XTAL_FREQ  4000000
 void ANALOGICO(void);
+void ANALOGICO2(void);
 void LOOP(void);
 void RECEIVE(void);
 void MESSAGE(void);
 char x;
-char BANDERA;
+char z;
 char y;
 char DATA;
 
@@ -58,7 +59,7 @@ void __interrupt() ISR(void){
 void main(void) {
    // oscilador interno
     
-    OSCCONbits.IRCF = 0b111; //4Mhz
+    OSCCONbits.IRCF = 0b110; //4Mhz
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -66,14 +67,14 @@ void main(void) {
     
     
      //entradas, salidas, entradas digitales o analogicas
-    ANSEL =  0b00000001;
+    ANSEL =  0b00100001;
     ANSELH = 0b00000000;
     
     TRISA = 0b00100001;
     TRISB = 0b00000000; 
     TRISC = 0b00011000;
     TRISD = 0b00000000;
-    TRISE = 0b0000;
+    TRISE = 0b0001;
     
     PORTA = 0;
     PORTB = 0;
@@ -84,10 +85,7 @@ void main(void) {
                  
     ADCON0bits.ADCS0 = 1;
     ADCON0bits.ADCS1 = 0;
-    ADCON0bits.CHS0 = 0;
-    ADCON0bits.CHS1 = 0;
-    ADCON0bits.CHS2 = 0;
-    ADCON0bits.CHS3 = 0;
+
     ADCON0bits.ADON = 1;   // adc on
     ADCON1bits.ADFM = 0;
     ADCON1bits.VCFG0 = 0;
@@ -114,7 +112,7 @@ void LOOP(void){
       
          
     ANALOGICO();
-   
+    ANALOGICO2();
  
 }
 }
@@ -126,18 +124,31 @@ void MESSAGE(void){
    
     while(BF==1);
     SSPBUF = y;
-    BANDERA = 0;
+    
     
         return;
 }
 
 void ANALOGICO(void){
-    ADCON0bits.ADON = 1;   
     __delay_ms(1);
-        ADCON0bits.GO = 1;  
+        ADCON0bits.CHS = 0000;
+        ADCON0bits.ADON = 1;
+        ADCON0bits.GO = 1;
         while(ADCON0bits.GO);
             
             y = ADRESH;
+           
+               
+    return;
+}
+void ANALOGICO2(void){
+    __delay_ms(1);
+        ADCON0bits.CHS = 0101;
+        ADCON0bits.ADON = 1;
+        ADCON0bits.GO = 1;
+        while(ADCON0bits.GO);
+            
+            z = ADRESH;
            
                
     return;

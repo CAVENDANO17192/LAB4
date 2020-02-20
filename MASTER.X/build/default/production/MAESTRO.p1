@@ -519,8 +519,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "60
-[; ;MAESTRO.c: 60:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+[; ;MAESTRO.c: 60:     OSCCONbits.IRCF = 0b110;
+[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
 "61
 [; ;MAESTRO.c: 61:     OSCCONbits.OSTS= 0;
 [e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
@@ -623,103 +623,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106
 [; ;MAESTRO.c: 106:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"108
-[; ;MAESTRO.c: 108:     x= 0;
+"121
+[; ;MAESTRO.c: 121:     x= 0;
 [e = _x -> -> 0 `i `uc ]
-"109
-[; ;MAESTRO.c: 109:     y=0;
+"122
+[; ;MAESTRO.c: 122:     y=0;
 [e = _y -> -> 0 `i `uc ]
-"110
-[; ;MAESTRO.c: 110:     LOOP();
+"123
+[; ;MAESTRO.c: 123:     LOOP();
 [e ( _LOOP ..  ]
-"111
-[; ;MAESTRO.c: 111: }
+"124
+[; ;MAESTRO.c: 124: }
 [e :UE 140 ]
 }
-"114
-[; ;MAESTRO.c: 114: void LOOP(void){
+"127
+[; ;MAESTRO.c: 127: void LOOP(void){
 [v _LOOP `(v ~T0 @X0 1 ef ]
 {
 [e :U _LOOP ]
 [f ]
-"115
-[; ;MAESTRO.c: 115:     while(1){
+"128
+[; ;MAESTRO.c: 128:     while(1){
 [e :U 143 ]
 {
-"116
-[; ;MAESTRO.c: 116:         ANALOGICO();
+"129
+[; ;MAESTRO.c: 129:         ANALOGICO();
 [e ( _ANALOGICO ..  ]
-"117
-[; ;MAESTRO.c: 117:         MESSAGE();
+"130
+[; ;MAESTRO.c: 130:         MESSAGE();
 [e ( _MESSAGE ..  ]
-"121
-[; ;MAESTRO.c: 121:     }
+"134
+[; ;MAESTRO.c: 134:     }
 }
 [e :U 142 ]
 [e $U 143  ]
 [e :U 144 ]
-"122
-[; ;MAESTRO.c: 122: }
+"135
+[; ;MAESTRO.c: 135: }
 [e :UE 141 ]
 }
-"124
-[; ;MAESTRO.c: 124: void MESSAGE(void){
+"137
+[; ;MAESTRO.c: 137: void MESSAGE(void){
 [v _MESSAGE `(v ~T0 @X0 1 ef ]
 {
 [e :U _MESSAGE ]
 [f ]
-"126
-[; ;MAESTRO.c: 126:     while(BF==1);
+"139
+[; ;MAESTRO.c: 139:     while(BF==1);
 [e $U 146  ]
 [e :U 147 ]
 [e :U 146 ]
 [e $ == -> _BF `i -> 1 `i 147  ]
 [e :U 148 ]
-"127
-[; ;MAESTRO.c: 127:     PORTDbits.RD1 = 1;
+"140
+[; ;MAESTRO.c: 140:     PORTDbits.RD1 = 1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"128
-[; ;MAESTRO.c: 128:     SSPBUF = y;
+"141
+[; ;MAESTRO.c: 141:     SSPBUF = y;
 [e = _SSPBUF -> _y `uc ]
-"129
-[; ;MAESTRO.c: 129:     PORTDbits.RD1 = 0;
+"142
+[; ;MAESTRO.c: 142:     PORTDbits.RD1 = 0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"134
-[; ;MAESTRO.c: 134:         return;
+"147
+[; ;MAESTRO.c: 147:         return;
 [e $UE 145  ]
-"135
-[; ;MAESTRO.c: 135: }
+"148
+[; ;MAESTRO.c: 148: }
 [e :UE 145 ]
 }
-"137
-[; ;MAESTRO.c: 137: void ANALOGICO(void){
+"150
+[; ;MAESTRO.c: 150: void ANALOGICO(void){
 [v _ANALOGICO `(v ~T0 @X0 1 ef ]
 {
 [e :U _ANALOGICO ]
 [f ]
-"138
-[; ;MAESTRO.c: 138:     ADCON0bits.ADON = 1;
+"151
+[; ;MAESTRO.c: 151:     ADCON0bits.ADON = 1;
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"139
-[; ;MAESTRO.c: 139:     _delay((unsigned long)((1)*(4000000/4000.0)));
+"152
+[; ;MAESTRO.c: 152:     _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"140
-[; ;MAESTRO.c: 140:         ADCON0bits.GO = 1;
+"153
+[; ;MAESTRO.c: 153:         ADCON0bits.GO = 1;
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-"141
-[; ;MAESTRO.c: 141:         while(ADCON0bits.GO);
+"154
+[; ;MAESTRO.c: 154:         while(ADCON0bits.GO);
 [e $U 150  ]
 [e :U 151 ]
 [e :U 150 ]
 [e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 151  ]
 [e :U 152 ]
-"143
-[; ;MAESTRO.c: 143:             y = ADRESH;
+"156
+[; ;MAESTRO.c: 156:             y = ADRESH;
 [e = _y -> _ADRESH `uc ]
-"146
-[; ;MAESTRO.c: 146:     return;
+"159
+[; ;MAESTRO.c: 159:     return;
 [e $UE 149  ]
-"147
-[; ;MAESTRO.c: 147: }
+"160
+[; ;MAESTRO.c: 160: }
 [e :UE 149 ]
 }

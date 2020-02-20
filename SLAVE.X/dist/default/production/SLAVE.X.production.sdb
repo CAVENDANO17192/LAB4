@@ -11,15 +11,15 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"43 C:\Users\50254\Documents\GitHub\LAB4\SLAVE.X\ESCLAVO.c
+"44 C:\Users\50254\Documents\GitHub\LAB4\SLAVE.X\ESCLAVO.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"58
+"59
 [v _main main `(v  1 e 1 0 ]
-"112
+"110
 [v _LOOP LOOP `(v  1 e 1 0 ]
-"125
+"123
 [v _MESSAGE MESSAGE `(v  1 e 1 0 ]
-"134
+"132
 [v _ANALOGICO ANALOGICO `(v  1 e 1 0 ]
 "166 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -193,34 +193,32 @@
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
 "3641
 [v _BF BF `VEb  1 e 0 @1184 ]
-"38 C:\Users\50254\Documents\GitHub\LAB4\SLAVE.X\ESCLAVO.c
+"39 C:\Users\50254\Documents\GitHub\LAB4\SLAVE.X\ESCLAVO.c
 [v _x x `uc  1 e 1 0 ]
-"39
-[v _BANDERA BANDERA `uc  1 e 1 0 ]
-"40
+"41
 [v _y y `uc  1 e 1 0 ]
-"58
+"59
 [v _main main `(v  1 e 1 0 ]
 {
-"111
+"109
 } 0
-"112
+"110
 [v _LOOP LOOP `(v  1 e 1 0 ]
 {
-"120
+"118
 } 0
-"134
+"132
 [v _ANALOGICO ANALOGICO `(v  1 e 1 0 ]
 {
-"144
+"143
 } 0
-"43
+"44
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"55
+"56
 } 0
-"125
+"123
 [v _MESSAGE MESSAGE `(v  1 e 1 0 ]
 {
-"132
+"130
 } 0

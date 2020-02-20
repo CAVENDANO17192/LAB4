@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Wed Feb 19 20:42:51 2020
+                                                                                               Thu Feb 20 16:39:13 2020
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	16F887
@@ -346,476 +346,478 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    332                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    333                           
    334                           
-   335                           ;MAESTRO.c: 60:     OSCCONbits.IRCF = 0b111;
-   336  0017  3070               	movlw	112
-   337  0018  1683               	bsf	3,5	;RP0=1, select bank1
-   338  0019  1303               	bcf	3,6	;RP1=0, select bank1
-   339  001A  048F               	iorwf	15,f	;volatile
-   340  001B                     l717:	
-   341                           
-   342                           ;MAESTRO.c: 61:     OSCCONbits.OSTS= 0;
-   343  001B  118F               	bcf	15,3	;volatile
-   344  001C                     l719:	
-   345                           
-   346                           ;MAESTRO.c: 62:     OSCCONbits.HTS = 0;
-   347  001C  110F               	bcf	15,2	;volatile
-   348  001D                     l721:	
-   349                           
-   350                           ;MAESTRO.c: 63:     OSCCONbits.LTS = 0;
-   351  001D  108F               	bcf	15,1	;volatile
-   352  001E                     l723:	
-   353                           
-   354                           ;MAESTRO.c: 64:     OSCCONbits.SCS = 1;
-   355  001E  140F               	bsf	15,0	;volatile
-   356  001F                     l725:	
-   357                           
-   358                           ;MAESTRO.c: 68:     ANSEL = 0b000100001;
-   359  001F  3021               	movlw	33
-   360  0020  1683               	bsf	3,5	;RP0=1, select bank3
-   361  0021  1703               	bsf	3,6	;RP1=1, select bank3
-   362  0022  0088               	movwf	8	;volatile
-   363  0023                     l727:	
-   364                           
-   365                           ;MAESTRO.c: 69:     ANSELH = 0b00000000;
-   366  0023  0189               	clrf	9	;volatile
-   367  0024                     l729:	
-   368                           
-   369                           ;MAESTRO.c: 71:     TRISA = 0b00000001;
-   370  0024  3001               	movlw	1
-   371  0025  1683               	bsf	3,5	;RP0=1, select bank1
-   372  0026  1303               	bcf	3,6	;RP1=0, select bank1
-   373  0027  0085               	movwf	5	;volatile
-   374  0028                     l731:	
-   375                           
-   376                           ;MAESTRO.c: 72:     TRISB = 0b00000000;
-   377  0028  0186               	clrf	6	;volatile
-   378  0029                     l733:	
-   379                           
-   380                           ;MAESTRO.c: 73:     TRISC = 0b00010000;
-   381  0029  3010               	movlw	16
-   382  002A  0087               	movwf	7	;volatile
-   383  002B                     l735:	
-   384                           
-   385                           ;MAESTRO.c: 74:     TRISD = 0b00000000;
-   386  002B  0188               	clrf	8	;volatile
-   387  002C                     l737:	
-   388                           
-   389                           ;MAESTRO.c: 75:     TRISE = 0001;
-   390  002C  3001               	movlw	1
-   391  002D  0089               	movwf	9	;volatile
-   392  002E                     l739:	
-   393                           
-   394                           ;MAESTRO.c: 77:     PORTA = 0;
-   395  002E  1283               	bcf	3,5	;RP0=0, select bank0
-   396  002F  1303               	bcf	3,6	;RP1=0, select bank0
-   397  0030  0185               	clrf	5	;volatile
-   398  0031                     l741:	
-   399                           
-   400                           ;MAESTRO.c: 78:     PORTB = 0;
-   401  0031  0186               	clrf	6	;volatile
-   402  0032                     l743:	
-   403                           
-   404                           ;MAESTRO.c: 79:     PORTC = 0;
-   405  0032  0187               	clrf	7	;volatile
-   406  0033                     l745:	
-   407                           
-   408                           ;MAESTRO.c: 80:     PORTD = 0;
-   409  0033  0188               	clrf	8	;volatile
-   410  0034                     l747:	
-   411                           
-   412                           ;MAESTRO.c: 81:     PORTE = 0;
-   413  0034  0189               	clrf	9	;volatile
-   414  0035                     l749:	
-   415                           
-   416                           ;MAESTRO.c: 84:     ADCON0bits.ADCS0 = 1;
-   417  0035  171F               	bsf	31,6	;volatile
-   418  0036                     l751:	
-   419                           
-   420                           ;MAESTRO.c: 85:     ADCON0bits.ADCS1 = 0;
-   421  0036  139F               	bcf	31,7	;volatile
-   422  0037                     l753:	
-   423                           
-   424                           ;MAESTRO.c: 86:     ADCON0bits.CHS0 = 0;
-   425  0037  111F               	bcf	31,2	;volatile
-   426  0038                     l755:	
-   427                           
-   428                           ;MAESTRO.c: 87:     ADCON0bits.CHS1 = 0;
-   429  0038  119F               	bcf	31,3	;volatile
-   430  0039                     l757:	
-   431                           
-   432                           ;MAESTRO.c: 88:     ADCON0bits.CHS2 = 0;
-   433  0039  121F               	bcf	31,4	;volatile
-   434  003A                     l759:	
-   435                           
-   436                           ;MAESTRO.c: 89:     ADCON0bits.CHS3 = 0;
-   437  003A  129F               	bcf	31,5	;volatile
-   438  003B                     l761:	
-   439                           
-   440                           ;MAESTRO.c: 90:     ADCON0bits.ADON = 1;
-   441  003B  141F               	bsf	31,0	;volatile
-   442  003C                     l763:	
-   443                           
-   444                           ;MAESTRO.c: 91:     ADCON1bits.ADFM = 0;
-   445  003C  1683               	bsf	3,5	;RP0=1, select bank1
-   446  003D  1303               	bcf	3,6	;RP1=0, select bank1
-   447  003E  139F               	bcf	31,7	;volatile
-   448  003F                     l765:	
-   449                           
-   450                           ;MAESTRO.c: 92:     ADCON1bits.VCFG0 = 0;
-   451  003F  121F               	bcf	31,4	;volatile
-   452  0040                     l767:	
-   453                           
-   454                           ;MAESTRO.c: 93:     ADCON1bits.VCFG1 = 0;
-   455  0040  129F               	bcf	31,5	;volatile
-   456  0041                     l769:	
-   457                           
-   458                           ;MAESTRO.c: 97:     SSPSTATbits.SMP = 0;
-   459  0041  1394               	bcf	20,7	;volatile
-   460  0042                     l771:	
-   461                           
-   462                           ;MAESTRO.c: 98:     SSPSTATbits.CKE = 0;
-   463  0042  1314               	bcf	20,6	;volatile
-   464  0043                     l773:	
-   465                           
-   466                           ;MAESTRO.c: 99:     SSPCONbits.SSPEN = 1;
-   467  0043  1283               	bcf	3,5	;RP0=0, select bank0
-   468  0044  1303               	bcf	3,6	;RP1=0, select bank0
-   469  0045  1694               	bsf	20,5	;volatile
-   470  0046                     l775:	
-   471                           
-   472                           ;MAESTRO.c: 100:     SSPCONbits.CKP = 1;
-   473  0046  1614               	bsf	20,4	;volatile
-   474                           
-   475                           ;MAESTRO.c: 101:     SSPCONbits.SSPM = 0b0010;
-   476  0047  0814               	movf	20,w	;volatile
-   477  0048  39F0               	andlw	-16
-   478  0049  3802               	iorlw	2
-   479  004A  0094               	movwf	20	;volatile
-   480  004B                     l777:	
-   481                           
-   482                           ;MAESTRO.c: 104:     PIE1bits.SSPIE = 1;
-   483  004B  1683               	bsf	3,5	;RP0=1, select bank1
-   484  004C  1303               	bcf	3,6	;RP1=0, select bank1
-   485  004D  158C               	bsf	12,3	;volatile
-   486  004E                     l779:	
-   487                           
-   488                           ;MAESTRO.c: 105:     INTCONbits.PEIE = 1;
-   489  004E  170B               	bsf	11,6	;volatile
-   490  004F                     l781:	
-   491                           
-   492                           ;MAESTRO.c: 106:     INTCONbits.GIE = 1;
-   493  004F  178B               	bsf	11,7	;volatile
-   494  0050                     l783:	
-   495                           
-   496                           ;MAESTRO.c: 108:     x= 0;
-   497  0050  01F3               	clrf	_x
-   498  0051                     l785:	
-   499                           
-   500                           ;MAESTRO.c: 109:     y=0;
-   501  0051  01F0               	clrf	_y
-   502  0052                     l787:	
-   503                           
-   504                           ;MAESTRO.c: 110:     LOOP();
-   505  0052  120A  118A  2096  120A  118A  	fcall	_LOOP
-   506  0057                     l75:	
-   507  0057  120A  118A  280C   	ljmp	start
-   508  005A                     __end_of_main:	
-   509                           
-   510                           	psect	text1
-   511  0096                     __ptext1:	
-   512 ;; *************** function _LOOP *****************
-   513 ;; Defined at:
-   514 ;;		line 114 in file "MAESTRO.c"
-   515 ;; Parameters:    Size  Location     Type
-   516 ;;		None
-   517 ;; Auto vars:     Size  Location     Type
+   335                           ;MAESTRO.c: 60:     OSCCONbits.IRCF = 0b110;
+   336  0017  1683               	bsf	3,5	;RP0=1, select bank1
+   337  0018  1303               	bcf	3,6	;RP1=0, select bank1
+   338  0019  080F               	movf	15,w	;volatile
+   339  001A  398F               	andlw	-113
+   340  001B  3860               	iorlw	96
+   341  001C  008F               	movwf	15	;volatile
+   342  001D                     l717:	
+   343                           
+   344                           ;MAESTRO.c: 61:     OSCCONbits.OSTS= 0;
+   345  001D  118F               	bcf	15,3	;volatile
+   346  001E                     l719:	
+   347                           
+   348                           ;MAESTRO.c: 62:     OSCCONbits.HTS = 0;
+   349  001E  110F               	bcf	15,2	;volatile
+   350  001F                     l721:	
+   351                           
+   352                           ;MAESTRO.c: 63:     OSCCONbits.LTS = 0;
+   353  001F  108F               	bcf	15,1	;volatile
+   354  0020                     l723:	
+   355                           
+   356                           ;MAESTRO.c: 64:     OSCCONbits.SCS = 1;
+   357  0020  140F               	bsf	15,0	;volatile
+   358  0021                     l725:	
+   359                           
+   360                           ;MAESTRO.c: 68:     ANSEL = 0b000100001;
+   361  0021  3021               	movlw	33
+   362  0022  1683               	bsf	3,5	;RP0=1, select bank3
+   363  0023  1703               	bsf	3,6	;RP1=1, select bank3
+   364  0024  0088               	movwf	8	;volatile
+   365  0025                     l727:	
+   366                           
+   367                           ;MAESTRO.c: 69:     ANSELH = 0b00000000;
+   368  0025  0189               	clrf	9	;volatile
+   369  0026                     l729:	
+   370                           
+   371                           ;MAESTRO.c: 71:     TRISA = 0b00000001;
+   372  0026  3001               	movlw	1
+   373  0027  1683               	bsf	3,5	;RP0=1, select bank1
+   374  0028  1303               	bcf	3,6	;RP1=0, select bank1
+   375  0029  0085               	movwf	5	;volatile
+   376  002A                     l731:	
+   377                           
+   378                           ;MAESTRO.c: 72:     TRISB = 0b00000000;
+   379  002A  0186               	clrf	6	;volatile
+   380  002B                     l733:	
+   381                           
+   382                           ;MAESTRO.c: 73:     TRISC = 0b00010000;
+   383  002B  3010               	movlw	16
+   384  002C  0087               	movwf	7	;volatile
+   385  002D                     l735:	
+   386                           
+   387                           ;MAESTRO.c: 74:     TRISD = 0b00000000;
+   388  002D  0188               	clrf	8	;volatile
+   389  002E                     l737:	
+   390                           
+   391                           ;MAESTRO.c: 75:     TRISE = 0001;
+   392  002E  3001               	movlw	1
+   393  002F  0089               	movwf	9	;volatile
+   394  0030                     l739:	
+   395                           
+   396                           ;MAESTRO.c: 77:     PORTA = 0;
+   397  0030  1283               	bcf	3,5	;RP0=0, select bank0
+   398  0031  1303               	bcf	3,6	;RP1=0, select bank0
+   399  0032  0185               	clrf	5	;volatile
+   400  0033                     l741:	
+   401                           
+   402                           ;MAESTRO.c: 78:     PORTB = 0;
+   403  0033  0186               	clrf	6	;volatile
+   404  0034                     l743:	
+   405                           
+   406                           ;MAESTRO.c: 79:     PORTC = 0;
+   407  0034  0187               	clrf	7	;volatile
+   408  0035                     l745:	
+   409                           
+   410                           ;MAESTRO.c: 80:     PORTD = 0;
+   411  0035  0188               	clrf	8	;volatile
+   412  0036                     l747:	
+   413                           
+   414                           ;MAESTRO.c: 81:     PORTE = 0;
+   415  0036  0189               	clrf	9	;volatile
+   416  0037                     l749:	
+   417                           
+   418                           ;MAESTRO.c: 84:     ADCON0bits.ADCS0 = 1;
+   419  0037  171F               	bsf	31,6	;volatile
+   420  0038                     l751:	
+   421                           
+   422                           ;MAESTRO.c: 85:     ADCON0bits.ADCS1 = 0;
+   423  0038  139F               	bcf	31,7	;volatile
+   424  0039                     l753:	
+   425                           
+   426                           ;MAESTRO.c: 86:     ADCON0bits.CHS0 = 0;
+   427  0039  111F               	bcf	31,2	;volatile
+   428  003A                     l755:	
+   429                           
+   430                           ;MAESTRO.c: 87:     ADCON0bits.CHS1 = 0;
+   431  003A  119F               	bcf	31,3	;volatile
+   432  003B                     l757:	
+   433                           
+   434                           ;MAESTRO.c: 88:     ADCON0bits.CHS2 = 0;
+   435  003B  121F               	bcf	31,4	;volatile
+   436  003C                     l759:	
+   437                           
+   438                           ;MAESTRO.c: 89:     ADCON0bits.CHS3 = 0;
+   439  003C  129F               	bcf	31,5	;volatile
+   440  003D                     l761:	
+   441                           
+   442                           ;MAESTRO.c: 90:     ADCON0bits.ADON = 1;
+   443  003D  141F               	bsf	31,0	;volatile
+   444  003E                     l763:	
+   445                           
+   446                           ;MAESTRO.c: 91:     ADCON1bits.ADFM = 0;
+   447  003E  1683               	bsf	3,5	;RP0=1, select bank1
+   448  003F  1303               	bcf	3,6	;RP1=0, select bank1
+   449  0040  139F               	bcf	31,7	;volatile
+   450  0041                     l765:	
+   451                           
+   452                           ;MAESTRO.c: 92:     ADCON1bits.VCFG0 = 0;
+   453  0041  121F               	bcf	31,4	;volatile
+   454  0042                     l767:	
+   455                           
+   456                           ;MAESTRO.c: 93:     ADCON1bits.VCFG1 = 0;
+   457  0042  129F               	bcf	31,5	;volatile
+   458  0043                     l769:	
+   459                           
+   460                           ;MAESTRO.c: 97:     SSPSTATbits.SMP = 0;
+   461  0043  1394               	bcf	20,7	;volatile
+   462  0044                     l771:	
+   463                           
+   464                           ;MAESTRO.c: 98:     SSPSTATbits.CKE = 0;
+   465  0044  1314               	bcf	20,6	;volatile
+   466  0045                     l773:	
+   467                           
+   468                           ;MAESTRO.c: 99:     SSPCONbits.SSPEN = 1;
+   469  0045  1283               	bcf	3,5	;RP0=0, select bank0
+   470  0046  1303               	bcf	3,6	;RP1=0, select bank0
+   471  0047  1694               	bsf	20,5	;volatile
+   472  0048                     l775:	
+   473                           
+   474                           ;MAESTRO.c: 100:     SSPCONbits.CKP = 1;
+   475  0048  1614               	bsf	20,4	;volatile
+   476                           
+   477                           ;MAESTRO.c: 101:     SSPCONbits.SSPM = 0b0010;
+   478  0049  0814               	movf	20,w	;volatile
+   479  004A  39F0               	andlw	-16
+   480  004B  3802               	iorlw	2
+   481  004C  0094               	movwf	20	;volatile
+   482  004D                     l777:	
+   483                           
+   484                           ;MAESTRO.c: 104:     PIE1bits.SSPIE = 1;
+   485  004D  1683               	bsf	3,5	;RP0=1, select bank1
+   486  004E  1303               	bcf	3,6	;RP1=0, select bank1
+   487  004F  158C               	bsf	12,3	;volatile
+   488  0050                     l779:	
+   489                           
+   490                           ;MAESTRO.c: 105:     INTCONbits.PEIE = 1;
+   491  0050  170B               	bsf	11,6	;volatile
+   492  0051                     l781:	
+   493                           
+   494                           ;MAESTRO.c: 106:     INTCONbits.GIE = 1;
+   495  0051  178B               	bsf	11,7	;volatile
+   496  0052                     l783:	
+   497                           
+   498                           ;MAESTRO.c: 121:     x= 0;
+   499  0052  01F3               	clrf	_x
+   500  0053                     l785:	
+   501                           
+   502                           ;MAESTRO.c: 122:     y=0;
+   503  0053  01F0               	clrf	_y
+   504  0054                     l787:	
+   505                           
+   506                           ;MAESTRO.c: 123:     LOOP();
+   507  0054  120A  118A  2098  120A  118A  	fcall	_LOOP
+   508  0059                     l75:	
+   509  0059  120A  118A  280C   	ljmp	start
+   510  005C                     __end_of_main:	
+   511                           
+   512                           	psect	text1
+   513  0098                     __ptext1:	
+   514 ;; *************** function _LOOP *****************
+   515 ;; Defined at:
+   516 ;;		line 127 in file "MAESTRO.c"
+   517 ;; Parameters:    Size  Location     Type
    518 ;;		None
-   519 ;; Return value:  Size  Location     Type
-   520 ;;                  1    wreg      void 
-   521 ;; Registers used:
-   522 ;;		wreg, status,2, status,0, pclath, cstack
-   523 ;; Tracked objects:
-   524 ;;		On entry : 0/0
-   525 ;;		On exit  : 0/0
-   526 ;;		Unchanged: 0/0
-   527 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   528 ;;      Params:         0       0       0       0       0
-   529 ;;      Locals:         0       0       0       0       0
-   530 ;;      Temps:          0       0       0       0       0
-   531 ;;      Totals:         0       0       0       0       0
-   532 ;;Total ram usage:        0 bytes
-   533 ;; Hardware stack levels used:    1
-   534 ;; Hardware stack levels required when called:    2
-   535 ;; This function calls:
-   536 ;;		_ANALOGICO
-   537 ;;		_MESSAGE
-   538 ;; This function is called by:
-   539 ;;		_main
-   540 ;; This function uses a non-reentrant model
-   541 ;;
-   542                           
-   543                           
-   544                           ;psect for function _LOOP
-   545  0096                     _LOOP:	
-   546  0096                     l78:	
-   547                           ;incstack = 0
-   548                           ; Regs used in _LOOP: [wreg+status,2+status,0+pclath+cstack]
-   549                           ;MAESTRO.c: 115:     while(1){
-   550                           
-   551  0096                     l703:	
+   519 ;; Auto vars:     Size  Location     Type
+   520 ;;		None
+   521 ;; Return value:  Size  Location     Type
+   522 ;;                  1    wreg      void 
+   523 ;; Registers used:
+   524 ;;		wreg, status,2, status,0, pclath, cstack
+   525 ;; Tracked objects:
+   526 ;;		On entry : 0/0
+   527 ;;		On exit  : 0/0
+   528 ;;		Unchanged: 0/0
+   529 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   530 ;;      Params:         0       0       0       0       0
+   531 ;;      Locals:         0       0       0       0       0
+   532 ;;      Temps:          0       0       0       0       0
+   533 ;;      Totals:         0       0       0       0       0
+   534 ;;Total ram usage:        0 bytes
+   535 ;; Hardware stack levels used:    1
+   536 ;; Hardware stack levels required when called:    2
+   537 ;; This function calls:
+   538 ;;		_ANALOGICO
+   539 ;;		_MESSAGE
+   540 ;; This function is called by:
+   541 ;;		_main
+   542 ;; This function uses a non-reentrant model
+   543 ;;
+   544                           
+   545                           
+   546                           ;psect for function _LOOP
+   547  0098                     _LOOP:	
+   548  0098                     l78:	
+   549                           ;incstack = 0
+   550                           ; Regs used in _LOOP: [wreg+status,2+status,0+pclath+cstack]
+   551                           ;MAESTRO.c: 128:     while(1){
    552                           
-   553                           ;MAESTRO.c: 116:         ANALOGICO();
-   554  0096  120A  118A  2073  120A  118A  	fcall	_ANALOGICO
-   555                           
-   556                           ;MAESTRO.c: 117:         MESSAGE();
-   557  009B  120A  118A  2089  120A  118A  	fcall	_MESSAGE
-   558  00A0  2896               	goto	l78
-   559  00A1  0008               	return
-   560  00A2                     __end_of_LOOP:	
-   561                           
-   562                           	psect	text2
-   563  0089                     __ptext2:	
-   564 ;; *************** function _MESSAGE *****************
-   565 ;; Defined at:
-   566 ;;		line 124 in file "MAESTRO.c"
-   567 ;; Parameters:    Size  Location     Type
-   568 ;;		None
-   569 ;; Auto vars:     Size  Location     Type
+   553  0098                     l703:	
+   554                           
+   555                           ;MAESTRO.c: 129:         ANALOGICO();
+   556  0098  120A  118A  2075  120A  118A  	fcall	_ANALOGICO
+   557                           
+   558                           ;MAESTRO.c: 130:         MESSAGE();
+   559  009D  120A  118A  208B  120A  118A  	fcall	_MESSAGE
+   560  00A2  2898               	goto	l78
+   561  00A3  0008               	return
+   562  00A4                     __end_of_LOOP:	
+   563                           
+   564                           	psect	text2
+   565  008B                     __ptext2:	
+   566 ;; *************** function _MESSAGE *****************
+   567 ;; Defined at:
+   568 ;;		line 137 in file "MAESTRO.c"
+   569 ;; Parameters:    Size  Location     Type
    570 ;;		None
-   571 ;; Return value:  Size  Location     Type
-   572 ;;                  1    wreg      void 
-   573 ;; Registers used:
-   574 ;;		wreg
-   575 ;; Tracked objects:
-   576 ;;		On entry : 0/0
-   577 ;;		On exit  : 0/0
-   578 ;;		Unchanged: 0/0
-   579 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   580 ;;      Params:         0       0       0       0       0
-   581 ;;      Locals:         0       0       0       0       0
-   582 ;;      Temps:          0       0       0       0       0
-   583 ;;      Totals:         0       0       0       0       0
-   584 ;;Total ram usage:        0 bytes
-   585 ;; Hardware stack levels used:    1
-   586 ;; Hardware stack levels required when called:    1
-   587 ;; This function calls:
-   588 ;;		Nothing
-   589 ;; This function is called by:
-   590 ;;		_LOOP
-   591 ;; This function uses a non-reentrant model
-   592 ;;
-   593                           
-   594                           
-   595                           ;psect for function _MESSAGE
-   596  0089                     _MESSAGE:	
-   597  0089                     l695:	
-   598                           ;incstack = 0
-   599                           ; Regs used in _MESSAGE: [wreg]
-   600                           
-   601  0089                     l84:	
-   602                           ;MAESTRO.c: 126:     while(BF==1);
-   603                           
-   604  0089  1683               	bsf	3,5	;RP0=1, select bank1
-   605  008A  1303               	bcf	3,6	;RP1=0, select bank1
-   606  008B  1814               	btfsc	20,0	;volatile
-   607  008C  288E               	goto	u21
-   608  008D  288F               	goto	u20
-   609  008E                     u21:	
-   610  008E  2889               	goto	l84
-   611  008F                     u20:	
-   612  008F                     l86:	
-   613                           
-   614                           ;MAESTRO.c: 127:     PORTDbits.RD1 = 1;
-   615  008F  1283               	bcf	3,5	;RP0=0, select bank0
-   616  0090  1303               	bcf	3,6	;RP1=0, select bank0
-   617  0091  1488               	bsf	8,1	;volatile
-   618  0092                     l697:	
-   619                           
-   620                           ;MAESTRO.c: 128:     SSPBUF = y;
-   621  0092  0870               	movf	_y,w
-   622  0093  0093               	movwf	19	;volatile
-   623  0094                     l699:	
-   624                           
-   625                           ;MAESTRO.c: 129:     PORTDbits.RD1 = 0;
-   626  0094  1088               	bcf	8,1	;volatile
-   627  0095                     l87:	
-   628  0095  0008               	return
-   629  0096                     __end_of_MESSAGE:	
-   630                           
-   631                           	psect	text3
-   632  0073                     __ptext3:	
-   633 ;; *************** function _ANALOGICO *****************
-   634 ;; Defined at:
-   635 ;;		line 137 in file "MAESTRO.c"
-   636 ;; Parameters:    Size  Location     Type
-   637 ;;		None
-   638 ;; Auto vars:     Size  Location     Type
+   571 ;; Auto vars:     Size  Location     Type
+   572 ;;		None
+   573 ;; Return value:  Size  Location     Type
+   574 ;;                  1    wreg      void 
+   575 ;; Registers used:
+   576 ;;		wreg
+   577 ;; Tracked objects:
+   578 ;;		On entry : 0/0
+   579 ;;		On exit  : 0/0
+   580 ;;		Unchanged: 0/0
+   581 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   582 ;;      Params:         0       0       0       0       0
+   583 ;;      Locals:         0       0       0       0       0
+   584 ;;      Temps:          0       0       0       0       0
+   585 ;;      Totals:         0       0       0       0       0
+   586 ;;Total ram usage:        0 bytes
+   587 ;; Hardware stack levels used:    1
+   588 ;; Hardware stack levels required when called:    1
+   589 ;; This function calls:
+   590 ;;		Nothing
+   591 ;; This function is called by:
+   592 ;;		_LOOP
+   593 ;; This function uses a non-reentrant model
+   594 ;;
+   595                           
+   596                           
+   597                           ;psect for function _MESSAGE
+   598  008B                     _MESSAGE:	
+   599  008B                     l695:	
+   600                           ;incstack = 0
+   601                           ; Regs used in _MESSAGE: [wreg]
+   602                           
+   603  008B                     l84:	
+   604                           ;MAESTRO.c: 139:     while(BF==1);
+   605                           
+   606  008B  1683               	bsf	3,5	;RP0=1, select bank1
+   607  008C  1303               	bcf	3,6	;RP1=0, select bank1
+   608  008D  1814               	btfsc	20,0	;volatile
+   609  008E  2890               	goto	u21
+   610  008F  2891               	goto	u20
+   611  0090                     u21:	
+   612  0090  288B               	goto	l84
+   613  0091                     u20:	
+   614  0091                     l86:	
+   615                           
+   616                           ;MAESTRO.c: 140:     PORTDbits.RD1 = 1;
+   617  0091  1283               	bcf	3,5	;RP0=0, select bank0
+   618  0092  1303               	bcf	3,6	;RP1=0, select bank0
+   619  0093  1488               	bsf	8,1	;volatile
+   620  0094                     l697:	
+   621                           
+   622                           ;MAESTRO.c: 141:     SSPBUF = y;
+   623  0094  0870               	movf	_y,w
+   624  0095  0093               	movwf	19	;volatile
+   625  0096                     l699:	
+   626                           
+   627                           ;MAESTRO.c: 142:     PORTDbits.RD1 = 0;
+   628  0096  1088               	bcf	8,1	;volatile
+   629  0097                     l87:	
+   630  0097  0008               	return
+   631  0098                     __end_of_MESSAGE:	
+   632                           
+   633                           	psect	text3
+   634  0075                     __ptext3:	
+   635 ;; *************** function _ANALOGICO *****************
+   636 ;; Defined at:
+   637 ;;		line 150 in file "MAESTRO.c"
+   638 ;; Parameters:    Size  Location     Type
    639 ;;		None
-   640 ;; Return value:  Size  Location     Type
-   641 ;;                  1    wreg      void 
-   642 ;; Registers used:
-   643 ;;		wreg
-   644 ;; Tracked objects:
-   645 ;;		On entry : 0/0
-   646 ;;		On exit  : 0/0
-   647 ;;		Unchanged: 0/0
-   648 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   649 ;;      Params:         0       0       0       0       0
-   650 ;;      Locals:         0       0       0       0       0
-   651 ;;      Temps:          1       0       0       0       0
-   652 ;;      Totals:         1       0       0       0       0
-   653 ;;Total ram usage:        1 bytes
-   654 ;; Hardware stack levels used:    1
-   655 ;; Hardware stack levels required when called:    1
-   656 ;; This function calls:
-   657 ;;		Nothing
-   658 ;; This function is called by:
-   659 ;;		_LOOP
-   660 ;; This function uses a non-reentrant model
-   661 ;;
-   662                           
-   663                           
-   664                           ;psect for function _ANALOGICO
-   665  0073                     _ANALOGICO:	
-   666  0073                     l685:	
-   667                           ;incstack = 0
-   668                           ; Regs used in _ANALOGICO: [wreg]
-   669                           
-   670                           
-   671                           ;MAESTRO.c: 138:     ADCON0bits.ADON = 1;
-   672  0073  1283               	bcf	3,5	;RP0=0, select bank0
-   673  0074  1303               	bcf	3,6	;RP1=0, select bank0
-   674  0075  141F               	bsf	31,0	;volatile
-   675  0076                     l687:	
-   676                           
-   677                           ;MAESTRO.c: 139:     _delay((unsigned long)((1)*(4000000/4000.0)));
-   678  0076  30C7               	movlw	199
-   679  0077  00F7               	movwf	??_ANALOGICO
-   680  0078                     u47:	
-   681  0078  2879               	nop2
-   682  0079  0BF7               	decfsz	??_ANALOGICO,f
-   683  007A  2878               	goto	u47
-   684  007B  287C               	nop2
-   685  007C  287D               	nop2
-   686  007D                     l689:	
-   687                           
-   688                           ;MAESTRO.c: 140:         ADCON0bits.GO = 1;
-   689  007D  1283               	bcf	3,5	;RP0=0, select bank0
-   690  007E  1303               	bcf	3,6	;RP1=0, select bank0
-   691  007F  149F               	bsf	31,1	;volatile
-   692  0080                     l90:	
-   693                           ;MAESTRO.c: 141:         while(ADCON0bits.GO);
-   694                           
-   695  0080  189F               	btfsc	31,1	;volatile
-   696  0081  2883               	goto	u11
-   697  0082  2884               	goto	u10
-   698  0083                     u11:	
-   699  0083  2880               	goto	l90
-   700  0084                     u10:	
-   701  0084                     l691:	
-   702                           
-   703                           ;MAESTRO.c: 143:             y = ADRESH;
-   704  0084  081E               	movf	30,w	;volatile
-   705  0085  00F7               	movwf	??_ANALOGICO
-   706  0086  0877               	movf	??_ANALOGICO,w
-   707  0087  00F0               	movwf	_y
-   708  0088                     l93:	
-   709  0088  0008               	return
-   710  0089                     __end_of_ANALOGICO:	
-   711                           
-   712                           	psect	text4
-   713  005A                     __ptext4:	
-   714 ;; *************** function _ISR *****************
-   715 ;; Defined at:
-   716 ;;		line 42 in file "MAESTRO.c"
-   717 ;; Parameters:    Size  Location     Type
-   718 ;;		None
-   719 ;; Auto vars:     Size  Location     Type
+   640 ;; Auto vars:     Size  Location     Type
+   641 ;;		None
+   642 ;; Return value:  Size  Location     Type
+   643 ;;                  1    wreg      void 
+   644 ;; Registers used:
+   645 ;;		wreg
+   646 ;; Tracked objects:
+   647 ;;		On entry : 0/0
+   648 ;;		On exit  : 0/0
+   649 ;;		Unchanged: 0/0
+   650 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   651 ;;      Params:         0       0       0       0       0
+   652 ;;      Locals:         0       0       0       0       0
+   653 ;;      Temps:          1       0       0       0       0
+   654 ;;      Totals:         1       0       0       0       0
+   655 ;;Total ram usage:        1 bytes
+   656 ;; Hardware stack levels used:    1
+   657 ;; Hardware stack levels required when called:    1
+   658 ;; This function calls:
+   659 ;;		Nothing
+   660 ;; This function is called by:
+   661 ;;		_LOOP
+   662 ;; This function uses a non-reentrant model
+   663 ;;
+   664                           
+   665                           
+   666                           ;psect for function _ANALOGICO
+   667  0075                     _ANALOGICO:	
+   668  0075                     l685:	
+   669                           ;incstack = 0
+   670                           ; Regs used in _ANALOGICO: [wreg]
+   671                           
+   672                           
+   673                           ;MAESTRO.c: 151:     ADCON0bits.ADON = 1;
+   674  0075  1283               	bcf	3,5	;RP0=0, select bank0
+   675  0076  1303               	bcf	3,6	;RP1=0, select bank0
+   676  0077  141F               	bsf	31,0	;volatile
+   677  0078                     l687:	
+   678                           
+   679                           ;MAESTRO.c: 152:     _delay((unsigned long)((1)*(4000000/4000.0)));
+   680  0078  30C7               	movlw	199
+   681  0079  00F7               	movwf	??_ANALOGICO
+   682  007A                     u47:	
+   683  007A  287B               	nop2
+   684  007B  0BF7               	decfsz	??_ANALOGICO,f
+   685  007C  287A               	goto	u47
+   686  007D  287E               	nop2
+   687  007E  287F               	nop2
+   688  007F                     l689:	
+   689                           
+   690                           ;MAESTRO.c: 153:         ADCON0bits.GO = 1;
+   691  007F  1283               	bcf	3,5	;RP0=0, select bank0
+   692  0080  1303               	bcf	3,6	;RP1=0, select bank0
+   693  0081  149F               	bsf	31,1	;volatile
+   694  0082                     l90:	
+   695                           ;MAESTRO.c: 154:         while(ADCON0bits.GO);
+   696                           
+   697  0082  189F               	btfsc	31,1	;volatile
+   698  0083  2885               	goto	u11
+   699  0084  2886               	goto	u10
+   700  0085                     u11:	
+   701  0085  2882               	goto	l90
+   702  0086                     u10:	
+   703  0086                     l691:	
+   704                           
+   705                           ;MAESTRO.c: 156:             y = ADRESH;
+   706  0086  081E               	movf	30,w	;volatile
+   707  0087  00F7               	movwf	??_ANALOGICO
+   708  0088  0877               	movf	??_ANALOGICO,w
+   709  0089  00F0               	movwf	_y
+   710  008A                     l93:	
+   711  008A  0008               	return
+   712  008B                     __end_of_ANALOGICO:	
+   713                           
+   714                           	psect	text4
+   715  005C                     __ptext4:	
+   716 ;; *************** function _ISR *****************
+   717 ;; Defined at:
+   718 ;;		line 42 in file "MAESTRO.c"
+   719 ;; Parameters:    Size  Location     Type
    720 ;;		None
-   721 ;; Return value:  Size  Location     Type
-   722 ;;                  1    wreg      void 
-   723 ;; Registers used:
-   724 ;;		wreg
-   725 ;; Tracked objects:
-   726 ;;		On entry : 0/0
-   727 ;;		On exit  : 0/0
-   728 ;;		Unchanged: 0/0
-   729 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   730 ;;      Params:         0       0       0       0       0
-   731 ;;      Locals:         0       0       0       0       0
-   732 ;;      Temps:          3       0       0       0       0
-   733 ;;      Totals:         3       0       0       0       0
-   734 ;;Total ram usage:        3 bytes
-   735 ;; Hardware stack levels used:    1
-   736 ;; This function calls:
-   737 ;;		Nothing
-   738 ;; This function is called by:
-   739 ;;		Interrupt level 1
-   740 ;; This function uses a non-reentrant model
-   741 ;;
-   742                           
-   743                           
-   744                           ;psect for function _ISR
-   745  005A                     _ISR:	
-   746  005A                     i1l705:	
-   747                           
-   748                           ;MAESTRO.c: 44:    if(PIR1bits.SSPIF==1 ){
-   749  005A  1283               	bcf	3,5	;RP0=0, select bank0
-   750  005B  1303               	bcf	3,6	;RP1=0, select bank0
-   751  005C  1D8C               	btfss	12,3	;volatile
-   752  005D  285F               	goto	u3_21
-   753  005E  2860               	goto	u3_20
-   754  005F                     u3_21:	
-   755  005F  286C               	goto	i1l70
-   756  0060                     u3_20:	
-   757  0060                     i1l707:	
-   758                           
-   759                           ;MAESTRO.c: 45:         x= SSPBUF;
-   760  0060  0813               	movf	19,w	;volatile
-   761  0061  00F4               	movwf	??_ISR
-   762  0062  0874               	movf	??_ISR,w
-   763  0063  00F3               	movwf	_x
-   764                           
-   765                           ;MAESTRO.c: 46:         PORTB = x;
-   766  0064  0873               	movf	_x,w
-   767  0065  0086               	movwf	6	;volatile
-   768  0066                     i1l709:	
-   769                           
-   770                           ;MAESTRO.c: 47:           SSPSTATbits.BF= 0;
-   771  0066  1683               	bsf	3,5	;RP0=1, select bank1
-   772  0067  1303               	bcf	3,6	;RP1=0, select bank1
-   773  0068  1014               	bcf	20,0	;volatile
-   774  0069                     i1l711:	
-   775                           
-   776                           ;MAESTRO.c: 48:           PIR1bits.SSPIF = 0;
-   777  0069  1283               	bcf	3,5	;RP0=0, select bank0
-   778  006A  1303               	bcf	3,6	;RP1=0, select bank0
-   779  006B  118C               	bcf	12,3	;volatile
-   780  006C                     i1l70:	
-   781  006C  0876               	movf	??_ISR+2,w
-   782  006D  008A               	movwf	10
-   783  006E  0E75               	swapf	(??_ISR+1)^(0+4294967168),w
-   784  006F  0083               	movwf	3
-   785  0070  0EFE               	swapf	btemp,f
-   786  0071  0E7E               	swapf	btemp,w
-   787  0072  0009               	retfie
-   788  0073                     __end_of_ISR:	
-   789  007E                     btemp	set	126	;btemp
-   790  007E                     wtemp0	set	126
-   791                           
-   792                           	psect	intentry
-   793  0004                     __pintentry:	
-   794                           ;incstack = 0
-   795                           ; Regs used in _ISR: [wreg]
-   796                           
-   797  0004                     interrupt_function:	
-   798  007E                     saved_w	set	btemp
-   799  0004  00FE               	movwf	btemp
-   800  0005  0E03               	swapf	3,w
-   801  0006  00F5               	movwf	??_ISR+1
-   802  0007  080A               	movf	10,w
-   803  0008  00F6               	movwf	??_ISR+2
-   804  0009  120A  118A  285A   	ljmp	_ISR
+   721 ;; Auto vars:     Size  Location     Type
+   722 ;;		None
+   723 ;; Return value:  Size  Location     Type
+   724 ;;                  1    wreg      void 
+   725 ;; Registers used:
+   726 ;;		wreg
+   727 ;; Tracked objects:
+   728 ;;		On entry : 0/0
+   729 ;;		On exit  : 0/0
+   730 ;;		Unchanged: 0/0
+   731 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   732 ;;      Params:         0       0       0       0       0
+   733 ;;      Locals:         0       0       0       0       0
+   734 ;;      Temps:          3       0       0       0       0
+   735 ;;      Totals:         3       0       0       0       0
+   736 ;;Total ram usage:        3 bytes
+   737 ;; Hardware stack levels used:    1
+   738 ;; This function calls:
+   739 ;;		Nothing
+   740 ;; This function is called by:
+   741 ;;		Interrupt level 1
+   742 ;; This function uses a non-reentrant model
+   743 ;;
+   744                           
+   745                           
+   746                           ;psect for function _ISR
+   747  005C                     _ISR:	
+   748  005C                     i1l705:	
+   749                           
+   750                           ;MAESTRO.c: 44:    if(PIR1bits.SSPIF==1 ){
+   751  005C  1283               	bcf	3,5	;RP0=0, select bank0
+   752  005D  1303               	bcf	3,6	;RP1=0, select bank0
+   753  005E  1D8C               	btfss	12,3	;volatile
+   754  005F  2861               	goto	u3_21
+   755  0060  2862               	goto	u3_20
+   756  0061                     u3_21:	
+   757  0061  286E               	goto	i1l70
+   758  0062                     u3_20:	
+   759  0062                     i1l707:	
+   760                           
+   761                           ;MAESTRO.c: 45:         x= SSPBUF;
+   762  0062  0813               	movf	19,w	;volatile
+   763  0063  00F4               	movwf	??_ISR
+   764  0064  0874               	movf	??_ISR,w
+   765  0065  00F3               	movwf	_x
+   766                           
+   767                           ;MAESTRO.c: 46:         PORTB = x;
+   768  0066  0873               	movf	_x,w
+   769  0067  0086               	movwf	6	;volatile
+   770  0068                     i1l709:	
+   771                           
+   772                           ;MAESTRO.c: 47:           SSPSTATbits.BF= 0;
+   773  0068  1683               	bsf	3,5	;RP0=1, select bank1
+   774  0069  1303               	bcf	3,6	;RP1=0, select bank1
+   775  006A  1014               	bcf	20,0	;volatile
+   776  006B                     i1l711:	
+   777                           
+   778                           ;MAESTRO.c: 48:           PIR1bits.SSPIF = 0;
+   779  006B  1283               	bcf	3,5	;RP0=0, select bank0
+   780  006C  1303               	bcf	3,6	;RP1=0, select bank0
+   781  006D  118C               	bcf	12,3	;volatile
+   782  006E                     i1l70:	
+   783  006E  0876               	movf	??_ISR+2,w
+   784  006F  008A               	movwf	10
+   785  0070  0E75               	swapf	(??_ISR+1)^(0+4294967168),w
+   786  0071  0083               	movwf	3
+   787  0072  0EFE               	swapf	btemp,f
+   788  0073  0E7E               	swapf	btemp,w
+   789  0074  0009               	retfie
+   790  0075                     __end_of_ISR:	
+   791  007E                     btemp	set	126	;btemp
+   792  007E                     wtemp0	set	126
+   793                           
+   794                           	psect	intentry
+   795  0004                     __pintentry:	
+   796                           ;incstack = 0
+   797                           ; Regs used in _ISR: [wreg]
+   798                           
+   799  0004                     interrupt_function:	
+   800  007E                     saved_w	set	btemp
+   801  0004  00FE               	movwf	btemp
+   802  0005  0E03               	swapf	3,w
+   803  0006  00F5               	movwf	??_ISR+1
+   804  0007  080A               	movf	10,w
+   805  0008  00F6               	movwf	??_ISR+2
+   806  0009  120A  118A  285C   	ljmp	_ISR
 
 
 Data Sizes:
@@ -943,55 +945,55 @@ DATA                 0      0       8      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Wed Feb 19 20:42:51 2020
+Symbol Table                                                                                   Thu Feb 20 16:39:13 2020
 
                        _x 0073                         _y 0070               __CFG_CP$OFF 0000  
-             _SSPSTATbits 0094                        _BF 04A0                        l90 0080  
-                      l75 0057                        l84 0089                        l93 0088  
-                      l86 008F                        l78 0096                        l87 0095  
-                      u10 0084                        u11 0083                        u20 008F  
-                      u21 008E                        u47 0078        __size_of_ANALOGICO 0016  
-                     l703 0096                       l721 001D                       l731 0028  
-                     l723 001E                       l715 0017                       l741 0031  
-                     l733 0029                       l725 001F                       l717 001B  
-                     l751 0036                       l743 0032                       l735 002B  
-                     l727 0023                       l719 001C                       l761 003B  
-                     l753 0037                       l745 0033                       l737 002C  
-                     l729 0024                       l691 0084                       l771 0042  
-                     l763 003C                       l755 0038                       l747 0034  
-                     l739 002E                       l685 0073                       l781 004F  
-                     l773 0043                       l765 003F                       l757 0039  
-                     l749 0035                       l687 0076                       l695 0089  
-                     l783 0050                       l775 0046                       l767 0040  
-                     l759 003A                       l689 007D                       l697 0092  
-                     l785 0051                       l777 004B                       l769 0041  
-                     l699 0094                       l787 0052                       l779 004E  
-            __CFG_CPD$OFF 0000                       _ISR 005A              __CFG_LVP$OFF 0000  
-                    ?_ISR 0074           __end_of_MESSAGE 0096                      _DATA 0071  
-                    i1l70 006C                      _LOOP 0096                      u3_20 0060  
-                    u3_21 005F              __CFG_WRT$OFF 0000                      _main 0017  
+             _SSPSTATbits 0094                        _BF 04A0                        l90 0082  
+                      l75 0059                        l84 008B                        l93 008A  
+                      l86 0091                        l78 0098                        l87 0097  
+                      u10 0086                        u11 0085                        u20 0091  
+                      u21 0090                        u47 007A        __size_of_ANALOGICO 0016  
+                     l703 0098                       l721 001F                       l731 002A  
+                     l723 0020                       l715 0017                       l741 0033  
+                     l733 002B                       l725 0021                       l717 001D  
+                     l751 0038                       l743 0034                       l735 002D  
+                     l727 0025                       l719 001E                       l761 003D  
+                     l753 0039                       l745 0035                       l737 002E  
+                     l729 0026                       l691 0086                       l771 0044  
+                     l763 003E                       l755 003A                       l747 0036  
+                     l739 0030                       l685 0075                       l781 0051  
+                     l773 0045                       l765 0041                       l757 003B  
+                     l749 0037                       l687 0078                       l695 008B  
+                     l783 0052                       l775 0048                       l767 0042  
+                     l759 003C                       l689 007F                       l697 0094  
+                     l785 0053                       l777 004D                       l769 0043  
+                     l699 0096                       l787 0054                       l779 0050  
+            __CFG_CPD$OFF 0000                       _ISR 005C              __CFG_LVP$OFF 0000  
+                    ?_ISR 0074           __end_of_MESSAGE 0098                      _DATA 0071  
+                    i1l70 006E                      _LOOP 0098                      u3_20 0062  
+                    u3_21 0061              __CFG_WRT$OFF 0000                      _main 0017  
                     btemp 007E                      start 000C             __CFG_IESO$OFF 0000  
                    ??_ISR 0074                     ?_LOOP 0074                     ?_main 0074  
-           __CFG_WDTE$OFF 0000                     _ANSEL 0188                     i1l711 0069  
-                   i1l705 005A                     i1l707 0060                     i1l709 0066  
+           __CFG_WDTE$OFF 0000                     _ANSEL 0188                     i1l711 006B  
+                   i1l705 005C                     i1l707 0062                     i1l709 0068  
                    _PORTA 0005                     _PORTB 0006                     _PORTC 0007  
                    _PORTD 0008                     _PORTE 0009                     _TRISA 0085  
                    _TRISB 0086                     _TRISC 0087                     _TRISD 0088  
                    _TRISE 0089            __CFG_FCMEN$OFF 0000            __CFG_BOREN$OFF 0000  
-                   pclath 000A         __end_of_ANALOGICO 0089                     status 0003  
-                   wtemp0 007E              __end_of_LOOP 00A2            __CFG_MCLRE$OFF 0000  
-         __initialization 000F              __end_of_main 005A                    ??_LOOP 0078  
+                   pclath 000A         __end_of_ANALOGICO 008B                     status 0003  
+                   wtemp0 007E              __end_of_LOOP 00A4            __CFG_MCLRE$OFF 0000  
+         __initialization 000F              __end_of_main 005C                    ??_LOOP 0078  
                   ??_main 0078                 ??_MESSAGE 0077                    _ADRESH 001E  
                   _ANSELH 0189                    _SSPBUF 0013            __CFG_PWRTE$OFF 0000  
                   saved_w 007E   __end_of__initialization 0013            __pcstackCOMMON 0074  
               __pmaintext 0017                __pintentry 0004                   _BANDERA 0072  
-                 _MESSAGE 0089                 _ANALOGICO 0073                   __ptext1 0096  
-                 __ptext2 0089                   __ptext3 0073                   __ptext4 005A  
+                 _MESSAGE 008B                 _ANALOGICO 0075                   __ptext1 0098  
+                 __ptext2 008B                   __ptext3 0075                   __ptext4 005C  
             __size_of_ISR 0019      end_of_initialization 0013                ?_ANALOGICO 0074  
-               _PORTDbits 0008       start_initialization 000F               __end_of_ISR 0073  
+               _PORTDbits 0008       start_initialization 000F               __end_of_ISR 0075  
 __CFG_FOSC$INTRC_NOCLKOUT 0000               ??_ANALOGICO 0077                  ?_MESSAGE 0074  
              __pbssCOMMON 0070                 ___latbits 0002         interrupt_function 0004  
                 _PIE1bits 008C                  _PIR1bits 000C                _ADCON0bits 001F  
               _ADCON1bits 009F          __size_of_MESSAGE 000D         __CFG_BOR4V$BOR40V 0000  
-           __size_of_LOOP 000C             __size_of_main 0043                _INTCONbits 000B  
+           __size_of_LOOP 000C             __size_of_main 0045                _INTCONbits 000B  
                 intlevel1 0000                _OSCCONbits 008F                _SSPCONbits 0014  

@@ -57,7 +57,7 @@ void __interrupt() ISR(void){
 void main(void) {
    // oscilador interno
     
-    OSCCONbits.IRCF = 0b111; //4Mhz
+    OSCCONbits.IRCF = 0b110; //4Mhz
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -104,7 +104,20 @@ void main(void) {
     PIE1bits.SSPIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
-   
+    
+      //eusart
+    
+// SPBRG = 25;
+//    // EL QUE TX
+//    TXSTAbits.BRGH = 1;
+//    TXSTAbits.TXEN = 1;
+//    TXSTAbits.SYNC = 0;
+//    TXSTAbits.TX9 = 0;
+//    //RX
+//    RCSTAbits.CREN = 1;
+//    RCSTAbits.SPEN = 1;
+//    RCSTAbits.RX9 = 0;
+//   
     x= 0;
     y=0;
     LOOP();
