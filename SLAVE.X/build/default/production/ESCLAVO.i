@@ -2589,7 +2589,7 @@ void main(void) {
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
 
-    BANDERA = 1;
+    x=0;
     y = 0;
     LOOP();
 }

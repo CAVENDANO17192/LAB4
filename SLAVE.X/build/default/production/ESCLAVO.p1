@@ -616,8 +616,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ESCLAVO.c: 106:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "108
-[; ;ESCLAVO.c: 108:     BANDERA = 1;
-[e = _BANDERA -> -> 1 `i `uc ]
+[; ;ESCLAVO.c: 108:     x=0;
+[e = _x -> -> 0 `i `uc ]
 "109
 [; ;ESCLAVO.c: 109:     y = 0;
 [e = _y -> -> 0 `i `uc ]

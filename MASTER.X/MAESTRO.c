@@ -104,7 +104,9 @@ void main(void) {
     PIE1bits.SSPIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
-    BANDERA = 1;
+   
+    x= 0;
+    y=0;
     LOOP();
 }
 

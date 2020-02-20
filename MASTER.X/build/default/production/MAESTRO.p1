@@ -623,100 +623,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106
 [; ;MAESTRO.c: 106:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"107
-[; ;MAESTRO.c: 107:     BANDERA = 1;
-[e = _BANDERA -> -> 1 `i `uc ]
 "108
-[; ;MAESTRO.c: 108:     LOOP();
-[e ( _LOOP ..  ]
+[; ;MAESTRO.c: 108:     x= 0;
+[e = _x -> -> 0 `i `uc ]
 "109
-[; ;MAESTRO.c: 109: }
+[; ;MAESTRO.c: 109:     y=0;
+[e = _y -> -> 0 `i `uc ]
+"110
+[; ;MAESTRO.c: 110:     LOOP();
+[e ( _LOOP ..  ]
+"111
+[; ;MAESTRO.c: 111: }
 [e :UE 140 ]
 }
-"112
-[; ;MAESTRO.c: 112: void LOOP(void){
+"114
+[; ;MAESTRO.c: 114: void LOOP(void){
 [v _LOOP `(v ~T0 @X0 1 ef ]
 {
 [e :U _LOOP ]
 [f ]
-"113
-[; ;MAESTRO.c: 113:     while(1){
+"115
+[; ;MAESTRO.c: 115:     while(1){
 [e :U 143 ]
 {
-"114
-[; ;MAESTRO.c: 114:         ANALOGICO();
+"116
+[; ;MAESTRO.c: 116:         ANALOGICO();
 [e ( _ANALOGICO ..  ]
-"115
-[; ;MAESTRO.c: 115:         MESSAGE();
+"117
+[; ;MAESTRO.c: 117:         MESSAGE();
 [e ( _MESSAGE ..  ]
-"119
-[; ;MAESTRO.c: 119:     }
+"121
+[; ;MAESTRO.c: 121:     }
 }
 [e :U 142 ]
 [e $U 143  ]
 [e :U 144 ]
-"120
-[; ;MAESTRO.c: 120: }
+"122
+[; ;MAESTRO.c: 122: }
 [e :UE 141 ]
 }
-"122
-[; ;MAESTRO.c: 122: void MESSAGE(void){
+"124
+[; ;MAESTRO.c: 124: void MESSAGE(void){
 [v _MESSAGE `(v ~T0 @X0 1 ef ]
 {
 [e :U _MESSAGE ]
 [f ]
-"124
-[; ;MAESTRO.c: 124:     while(BF==1);
+"126
+[; ;MAESTRO.c: 126:     while(BF==1);
 [e $U 146  ]
 [e :U 147 ]
 [e :U 146 ]
 [e $ == -> _BF `i -> 1 `i 147  ]
 [e :U 148 ]
-"125
-[; ;MAESTRO.c: 125:     PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"126
-[; ;MAESTRO.c: 126:     SSPBUF = y;
-[e = _SSPBUF -> _y `uc ]
 "127
-[; ;MAESTRO.c: 127:     PORTDbits.RD1 = 0;
+[; ;MAESTRO.c: 127:     PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+"128
+[; ;MAESTRO.c: 128:     SSPBUF = y;
+[e = _SSPBUF -> _y `uc ]
+"129
+[; ;MAESTRO.c: 129:     PORTDbits.RD1 = 0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"132
-[; ;MAESTRO.c: 132:         return;
+"134
+[; ;MAESTRO.c: 134:         return;
 [e $UE 145  ]
-"133
-[; ;MAESTRO.c: 133: }
+"135
+[; ;MAESTRO.c: 135: }
 [e :UE 145 ]
 }
-"135
-[; ;MAESTRO.c: 135: void ANALOGICO(void){
+"137
+[; ;MAESTRO.c: 137: void ANALOGICO(void){
 [v _ANALOGICO `(v ~T0 @X0 1 ef ]
 {
 [e :U _ANALOGICO ]
 [f ]
-"136
-[; ;MAESTRO.c: 136:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"137
-[; ;MAESTRO.c: 137:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "138
-[; ;MAESTRO.c: 138:         ADCON0bits.GO = 1;
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;MAESTRO.c: 138:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "139
-[; ;MAESTRO.c: 139:         while(ADCON0bits.GO);
+[; ;MAESTRO.c: 139:     _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"140
+[; ;MAESTRO.c: 140:         ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+"141
+[; ;MAESTRO.c: 141:         while(ADCON0bits.GO);
 [e $U 150  ]
 [e :U 151 ]
 [e :U 150 ]
 [e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 151  ]
 [e :U 152 ]
-"141
-[; ;MAESTRO.c: 141:             y = ADRESH;
+"143
+[; ;MAESTRO.c: 143:             y = ADRESH;
 [e = _y -> _ADRESH `uc ]
-"144
-[; ;MAESTRO.c: 144:     return;
+"146
+[; ;MAESTRO.c: 146:     return;
 [e $UE 149  ]
-"145
-[; ;MAESTRO.c: 145: }
+"147
+[; ;MAESTRO.c: 147: }
 [e :UE 149 ]
 }
