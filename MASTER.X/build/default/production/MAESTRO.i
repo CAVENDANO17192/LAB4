@@ -2520,13 +2520,28 @@ void MESSAGE(void);
 void LOOP(void);
 void RECEIVE(void);
 char x;
+char BANDERA;
 char DATA;
 char y;
+
+void __attribute__((picinterrupt(("")))) ISR(void){
+
+   if(PIR1bits.SSPIF==1 ){
+        x= SSPBUF;
+        PORTB = x;
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+
+    }
+    return;
+
+}
+
 
 void main(void) {
 
 
-    OSCCONbits.IRCF = 0b110;
+    OSCCONbits.IRCF = 0b111;
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -2570,6 +2585,10 @@ void main(void) {
     SSPCONbits.SSPM = 0b0010;
 
 
+    PIE1bits.SSPIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+    BANDERA = 1;
     LOOP();
 }
 
@@ -2578,28 +2597,23 @@ void LOOP(void){
     while(1){
         ANALOGICO();
         MESSAGE();
+
+
+
     }
 }
 
 void MESSAGE(void){
 
+
     PORTDbits.RD1 = 1;
-    SSPBUF = x;
+    SSPBUF = y;
     PORTDbits.RD1 = 0;
+
 
 
 
         return;
-}
-void RECEIVE(void){
-    PORTDbits.RD1 = 0;
-    if(SSPSTATbits.BF==1){
-          x= SSPBUF;
-
-          SSPSTATbits.BF= 0;
-          SSPCONbits.SSPOV=0;
-        }
-    return;
 }
 
 void ANALOGICO(void){
@@ -2607,8 +2621,8 @@ void ANALOGICO(void){
     _delay((unsigned long)((1)*(4000000/4000.0)));
         ADCON0bits.GO = 1;
         while(ADCON0bits.GO);
-            PORTB= ADRESH;
-            x = ADRESH;
+
+            y = ADRESH;
 
 
     return;

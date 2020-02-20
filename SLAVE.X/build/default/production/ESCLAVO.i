@@ -2520,12 +2520,27 @@ void LOOP(void);
 void RECEIVE(void);
 void MESSAGE(void);
 char x;
+char BANDERA;
 char y;
 char DATA;
+
+void __attribute__((picinterrupt(("")))) ISR(void){
+
+    if(PIR1bits.SSPIF==1 ){
+        x= SSPBUF;
+
+        PORTB = x;
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+    }
+    return;
+}
+
+
 void main(void) {
 
 
-    OSCCONbits.IRCF = 0b110;
+    OSCCONbits.IRCF = 0b111;
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -2567,30 +2582,46 @@ void main(void) {
     SSPCONbits.CKP = 1;
     SSPCONbits.SSPM = 0b0100;
 
+
+    PIE1bits.SSPIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+
+    BANDERA = 1;
     y = 0;
     LOOP();
 }
 void LOOP(void){
     while(1){
 
-    RECEIVE();
 
-    PORTB = y;
+    ANALOGICO();
+    MESSAGE();
+
+
 
 }
 }
-# 110 "ESCLAVO.c"
-void RECEIVE(void){
-    if(SSPSTATbits.BF==1){
-          y= SSPBUF;
-          SSPSTATbits.BF=0;
 
 
 
 
+void MESSAGE(void){
 
-    }
 
+    SSPBUF = y;
+    BANDERA = 0;
+
+        return;
+}
+
+void ANALOGICO(void){
+    ADCON0bits.ADON = 1;
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+        ADCON0bits.GO = 1;
+        while(ADCON0bits.GO);
+
+            y = ADRESH;
 
 
     return;

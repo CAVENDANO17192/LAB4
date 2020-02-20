@@ -36,12 +36,27 @@ void LOOP(void);
 void RECEIVE(void);
 void MESSAGE(void);
 char x;
+char BANDERA;
 char y;
 char DATA;
+
+void __interrupt() ISR(void){
+       
+    if(PIR1bits.SSPIF==1  ){
+        x= SSPBUF;
+        
+        PORTB = x;
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+    }
+    return;
+}
+
+
 void main(void) {
    // oscilador interno
     
-    OSCCONbits.IRCF = 0b110; //8Mhz
+    OSCCONbits.IRCF = 0b111; //4Mhz
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -83,47 +98,47 @@ void main(void) {
     SSPCONbits.CKP = 1;
     SSPCONbits.SSPM = 0b0100;
    
+    //interrupts
+    PIE1bits.SSPIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+    
+    BANDERA = 1;
     y = 0;
     LOOP();
 }
 void LOOP(void){
     while(1){
       
-    RECEIVE();      
-    
-    PORTB = y;
-    
-}
-}
-
-//void ANALOGICO(void){
-//    ADCON0bits.ADON = 1;   
-//    __delay_ms(1);
-//        ADCON0bits.GO = 1;  
-//        while(ADCON0bits.GO);
-//            PORTB= ADRESH;
-//           
-//               
-//    return;
-//}
-
-void RECEIVE(void){
-    if(SSPSTATbits.BF==1){
-          y= SSPBUF;
-          SSPSTATbits.BF=0;
-          
-//           PORTDbits.RD1= 1;
-//          __delay_ms(500);
-//            PORTDbits.RD1=0;
-//          __delay_ms(500);
-    }
          
-          
-        
+    ANALOGICO();
+    MESSAGE();
+    
+
+    
+}
+}
+
+
+
+
+void MESSAGE(void){
+   
+    
+    SSPBUF = y;
+    BANDERA = 0;
+    
+        return;
+}
+
+void ANALOGICO(void){
+    ADCON0bits.ADON = 1;   
+    __delay_ms(1);
+        ADCON0bits.GO = 1;  
+        while(ADCON0bits.GO);
+            
+            y = ADRESH;
+           
+               
     return;
 }
-//void MESSAGE(void){
-//    SSPBUF = x;
-//        while(SSPSTATbits.BF);
-//        return;
-//}
