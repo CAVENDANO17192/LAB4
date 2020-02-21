@@ -2520,30 +2520,48 @@ void ANALOGICO2(void);
 void LOOP(void);
 void RECEIVE(void);
 void MESSAGE(void);
+void MESSAGE2(void);
 char x;
 char z;
 char y;
 char DATA;
+char BANDERA;
 
 void __attribute__((picinterrupt(("")))) ISR(void){
 
-    if(PIR1bits.SSPIF==1 ){
+    if(PIR1bits.SSPIF==1 & BANDERA == 0 ){
+        x= SSPBUF;
+
+        PORTB = x;
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+           MESSAGE();
+
+
+           return;
+    }
+    if(PIR1bits.SSPIF==1 & BANDERA == 1 ){
         x= SSPBUF;
 
         PORTB = x;
           SSPSTATbits.BF= 0;
           PIR1bits.SSPIF = 0;
 
+           MESSAGE2();
+
+           return;
     }
-    MESSAGE();
+
     return;
+
+
 }
 
 
 void main(void) {
 
 
-    OSCCONbits.IRCF = 0b111;
+    OSCCONbits.IRCF = 0b110;
     OSCCONbits.OSTS= 0;
     OSCCONbits.HTS = 0;
     OSCCONbits.LTS = 0;
@@ -2551,10 +2569,10 @@ void main(void) {
 
 
 
-    ANSEL = 0b00000001;
+    ANSEL = 0b00000011;
     ANSELH = 0b00000000;
 
-    TRISA = 0b00100001;
+    TRISA = 0b00100011;
     TRISB = 0b00000000;
     TRISC = 0b00011000;
     TRISD = 0b00000000;
@@ -2589,6 +2607,7 @@ void main(void) {
 
     x=0;
     y = 0;
+    z=0;
     LOOP();
 }
 void LOOP(void){
@@ -2597,6 +2616,7 @@ void LOOP(void){
 
     ANALOGICO();
 
+    ANALOGICO2();
 
 }
 }
@@ -2607,7 +2627,18 @@ void LOOP(void){
 void MESSAGE(void){
 
     while(BF==1);
+
     SSPBUF = y;
+    BANDERA = 1;
+
+        return;
+}
+void MESSAGE2(void){
+
+    while(BF==1);
+
+    SSPBUF = z;
+    BANDERA = 0;
 
 
         return;
@@ -2626,16 +2657,13 @@ void ANALOGICO(void){
     return;
 }
 void ANALOGICO2(void){
-    ADCON0bits.CHS0 = 0;
-    ADCON0bits.CHS1 = 0;
-    ADCON0bits.CHS2 = 0;
-    ADCON0bits.CHS3 = 0;
-    ADCON0bits.ADON = 1;
     _delay((unsigned long)((1)*(4000000/4000.0)));
+        ADCON0bits.CHS = 0001;
+        ADCON0bits.ADON = 1;
         ADCON0bits.GO = 1;
         while(ADCON0bits.GO);
 
-            y = ADRESH;
+            z = ADRESH;
 
 
     return;

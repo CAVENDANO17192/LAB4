@@ -33,23 +33,46 @@
 void ANALOGICO(void);
 void MESSAGE(void);
 void LOOP(void);
-void RECEIVE(void);
+void RECEIVERX(void);
+void TRANSMITTX(void);
+void RECEIVESPIA(void);
+void RECEIVESPIB(void);
 char x;
+char z;
 char BANDERA;
 char DATA;
 char y;
+char DATATX;
+char DATARX;
+char DATASPIso;
+char DATASPIsi;
+char ORDENADOR;
 
 void __interrupt() ISR(void){
        
-   if(PIR1bits.SSPIF==1  ){
-        x= SSPBUF;
-        PORTB = x;
+   if(PIR1bits.SSPIF==1 & BANDERA == 1  ){
+        z = SSPBUF;
+        PORTE = z;
+        BANDERA = 0;
           SSPSTATbits.BF= 0;
           PIR1bits.SSPIF = 0;
           
+          return;
+          
+    }
+      
+   if(PIR1bits.SSPIF==1 & BANDERA == 0  ){
+        x = SSPBUF;
+//        PORTB = x;
+        BANDERA = 1;
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+          
+          return;
+          
     }
    
-    return;
+   return;
 
 }    
 
@@ -65,14 +88,14 @@ void main(void) {
     
     
      //entradas, salidas, entradas digitales o analogicas
-    ANSEL = 0b000100001;
+    ANSEL = 0b000000001;
     ANSELH = 0b00000000;
     
     TRISA = 0b00000001;
     TRISB = 0b00000000;  
     TRISC = 0b00010000;
     TRISD = 0b00000000;
-    TRISE = 0001;
+    TRISE = 0000;
     
     PORTA = 0;
     PORTB = 0;
@@ -107,17 +130,17 @@ void main(void) {
     
       //eusart
     
-// SPBRG = 25;
-//    // EL QUE TX
-//    TXSTAbits.BRGH = 1;
-//    TXSTAbits.TXEN = 1;
-//    TXSTAbits.SYNC = 0;
-//    TXSTAbits.TX9 = 0;
-//    //RX
-//    RCSTAbits.CREN = 1;
-//    RCSTAbits.SPEN = 1;
-//    RCSTAbits.RX9 = 0;
-//   
+ SPBRG = 25;
+    // EL QUE TX
+    TXSTAbits.BRGH = 1;
+    TXSTAbits.TXEN = 1;
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.TX9 = 0;
+    //RX
+    RCSTAbits.CREN = 1;
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+   
     x= 0;
     y=0;
     LOOP();
@@ -128,7 +151,12 @@ void LOOP(void){
     while(1){
         ANALOGICO();
         MESSAGE();
-        
+  
+
+        RECEIVERX();
+//        TRANSMITTX();
+//        
+//        
         
         
     }
@@ -147,6 +175,7 @@ void MESSAGE(void){
         return;
 }
 
+
 void ANALOGICO(void){
     ADCON0bits.ADON = 1;   
     __delay_ms(1);
@@ -158,3 +187,16 @@ void ANALOGICO(void){
                
     return;
 }
+void RECEIVERX(void){
+    while(!RCIF);
+    DATARX = RCREG;
+    PORTB = DATARX;
+    return;
+}
+    
+
+//void TRANSMITTX(void){
+//     while(!TRMT);
+//  TXREG = DATATX;
+//    return;
+//}

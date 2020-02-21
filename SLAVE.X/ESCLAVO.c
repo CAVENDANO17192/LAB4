@@ -36,23 +36,41 @@ void ANALOGICO2(void);
 void LOOP(void);
 void RECEIVE(void);
 void MESSAGE(void);
+void MESSAGE2(void);
 char x;
 char z;
 char y;
 char DATA;
+char BANDERA;
 
 void __interrupt() ISR(void){
        
-    if(PIR1bits.SSPIF==1  ){
+    if(PIR1bits.SSPIF==1 & BANDERA == 0   ){
+        x= SSPBUF;
+        
+        PORTB = x;
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+           MESSAGE();
+           
+         
+           return;
+    }
+    if(PIR1bits.SSPIF==1 & BANDERA == 1 ){
         x= SSPBUF;
         
         PORTB = x;
           SSPSTATbits.BF= 0;
           PIR1bits.SSPIF = 0;
            
+           MESSAGE2();
+         
+           return;
     }
-    MESSAGE();
+   
     return;
+   
+    
 }
 
 
@@ -67,14 +85,14 @@ void main(void) {
     
     
      //entradas, salidas, entradas digitales o analogicas
-    ANSEL =  0b00100001;
+    ANSEL =  0b00000011;
     ANSELH = 0b00000000;
     
-    TRISA = 0b00100001;
+    TRISA = 0b00100011;
     TRISB = 0b00000000; 
     TRISC = 0b00011000;
     TRISD = 0b00000000;
-    TRISE = 0b0001;
+    TRISE = 0b0000;
     
     PORTA = 0;
     PORTB = 0;
@@ -105,6 +123,7 @@ void main(void) {
     
     x=0;
     y = 0;
+    z=0;
     LOOP();
 }
 void LOOP(void){
@@ -112,6 +131,7 @@ void LOOP(void){
       
          
     ANALOGICO();
+    
     ANALOGICO2();
  
 }
@@ -123,7 +143,18 @@ void LOOP(void){
 void MESSAGE(void){
    
     while(BF==1);
+    
     SSPBUF = y;
+    BANDERA = 1;
+   
+        return;
+}
+void MESSAGE2(void){
+   
+    while(BF==1);
+   
+    SSPBUF = z;
+    BANDERA = 0;
     
     
         return;
@@ -143,7 +174,7 @@ void ANALOGICO(void){
 }
 void ANALOGICO2(void){
     __delay_ms(1);
-        ADCON0bits.CHS = 0101;
+        ADCON0bits.CHS = 0001;
         ADCON0bits.ADON = 1;
         ADCON0bits.GO = 1;
         while(ADCON0bits.GO);

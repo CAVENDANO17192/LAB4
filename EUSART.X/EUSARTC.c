@@ -34,8 +34,8 @@
 
 void LOOP(void);
 void ANALOGICO(void);
-void TRANSMIT(void); 
-void RECEIVE(void);
+void TRANSMITTX(void); 
+void RECEIVERX(void);
 char y;
 char x;
 char z;
@@ -89,8 +89,8 @@ void LOOP(void){
     while(1){
       
         ANALOGICO();
-        TRANSMIT();
-        RECEIVE();
+        TRANSMITTX();
+        RECEIVERX();
         PORTB = x;
  
 }
@@ -109,14 +109,14 @@ void ANALOGICO(void){
                
     return;
 }
-void RECEIVE(void){
+void RECEIVERX(void){
     while(!RCIF);
     x = RCREG;
     return;
 }
     
 
-void TRANSMIT(void){
+void TRANSMITTX(void){
      while(!TRMT);
   TXREG = y;
     return;
